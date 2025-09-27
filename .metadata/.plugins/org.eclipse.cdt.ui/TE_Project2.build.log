@@ -1,0 +1,28 @@
+18:36:48 **** Build of configuration Debug for project TE_Project2 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/AUDIO/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:120:36: warning: passing argument 2 of 'HAL_I2S_Transmit' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  120 |           HAL_I2S_Transmit(&hi2s1, triangle_wave, sizeof(triangle_wave)/sizeof(triangle_wave[0]), 1000);
+      |                                    ^~~~~~~~~~~~~
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:371,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h:469:71: note: expected 'uint16_t *' {aka 'short unsigned int *'} but argument is of type 'const uint16_t *' {aka 'const short unsigned int *'}
+  469 | HAL_StatusTypeDef HAL_I2S_Transmit(I2S_HandleTypeDef *hi2s, uint16_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                             ~~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "TE_Project2.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\TE_Project2\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TE_Project2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: TE_Project2.elf
+ 
+arm-none-eabi-size  TE_Project2.elf 
+arm-none-eabi-objdump -h -S TE_Project2.elf  > "TE_Project2.list"
+   text	   data	    bss	    dec	    hex	filename
+  31128	    300	  11268	  42696	   a6c8	TE_Project2.elf
+Finished building: default.size.stdout
+ 
+Finished building: TE_Project2.list
+ 
+
+18:36:50 Build Finished. 0 errors, 1 warnings. (took 2s.174ms)
+

@@ -1,0 +1,81 @@
+2025-09-20 11:24:34,647 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 392127368 Bytes (505413632)
+2025-09-20 11:24:39,293 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 427447152 Bytes (505413632)
+2025-09-20 11:26:09,554 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-09-20 11:26:09,603 [INFO] I2sManager:658 - 1.5E8
+2025-09-20 11:26:09,603 [INFO] I2sManager:195 - I2S Clock Value : 1.5E8
+2025-09-20 11:26:09,603 [INFO] I2sManager:553 - AudioClock : 43808Divider : 53Odd : 1
+2025-09-20 11:26:09,647 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-09-20 11:26:10,479 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-09-20 11:26:10,507 [INFO] I2sManager:658 - 1.5E8
+2025-09-20 11:26:10,507 [INFO] I2sManager:195 - I2S Clock Value : 1.5E8
+2025-09-20 11:26:10,508 [INFO] I2sManager:553 - AudioClock : 47831Divider : 49Odd : 0
+2025-09-20 11:26:10,543 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-09-20 11:26:14,468 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 445830480 Bytes (505413632)
+2025-09-20 11:26:17,933 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 228867856 Bytes (505413632)
+2025-09-20 11:26:18,069 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 248790800 Bytes (505413632)
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-09-20 11:26:18,570 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-09-20 11:26:18,571 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-09-20 11:26:18,582 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-09-20 11:26:18,582 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-09-20 11:26:18,582 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-09-20 11:26:18,663 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\license.tmp_save
+2025-09-20 11:26:18,994 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\license.tmp
+2025-09-20 11:26:19,065 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\gpio.tmp_save
+2025-09-20 11:26:19,176 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\gpio.tmp
+2025-09-20 11:26:19,211 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-09-20 11:26:19,219 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-09-20 11:26:19,287 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-09-20 11:26:19,290 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-09-20 11:26:19,347 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-09-20 11:26:19,351 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-09-20 11:26:19,426 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-09-20 11:26:19,430 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-09-20 11:26:19,503 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-09-20 11:26:19,590 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-09-20 11:26:19,605 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-09-20 11:26:19,613 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usb_device.c_save
+2025-09-20 11:26:19,684 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usb_device.c
+2025-09-20 11:26:19,688 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usb_device.h_save
+2025-09-20 11:26:19,743 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usb_device.h
+2025-09-20 11:26:19,749 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\Target\usbd_conf.h_save
+2025-09-20 11:26:19,802 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\Target\usbd_conf.h
+2025-09-20 11:26:19,807 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\Target\usbd_conf.c_save
+2025-09-20 11:26:19,871 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\Target\usbd_conf.c
+2025-09-20 11:26:19,876 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_desc.h_save
+2025-09-20 11:26:19,926 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_desc.h
+2025-09-20 11:26:19,931 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_desc.c_save
+2025-09-20 11:26:19,984 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_desc.c
+2025-09-20 11:26:19,989 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_audio_if.h_save
+2025-09-20 11:26:20,036 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_audio_if.h
+2025-09-20 11:26:20,041 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_audio_if.c_save
+2025-09-20 11:26:20,077 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\USB_DEVICE\App\usbd_audio_if.c
+2025-09-20 11:26:20,099 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Src\stm32f4xx_it.c_save
+2025-09-20 11:26:20,170 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Src\stm32f4xx_it.c
+2025-09-20 11:26:20,170 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\stm32f4xx_it.h_save
+2025-09-20 11:26:20,225 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\stm32f4xx_it.h
+2025-09-20 11:26:20,236 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Src\stm32f4xx_hal_msp.c_save
+2025-09-20 11:26:20,329 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Src\stm32f4xx_hal_msp.c
+2025-09-20 11:26:20,329 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\system.tmp_save
+2025-09-20 11:26:20,379 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\MXTmpFiles\system.tmp
+2025-09-20 11:26:20,379 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-09-20 11:26:20,442 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\stm32f4xx_hal_conf.h
+2025-09-20 11:26:20,460 [INFO] ApiDbMcu:532 - Load IP Config File for I2S1
+2025-09-20 11:26:20,460 [INFO] ApiDbMcu:532 - Load IP Config File for RCC
+2025-09-20 11:26:20,474 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\main.h_save
+2025-09-20 11:26:20,541 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Inc\main.h
+2025-09-20 11:26:20,546 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\TE_Project2\Core\Src\main.c_save
+2025-09-20 11:26:20,638 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\TE_Project2\Core\Src\main.c
+2025-09-20 11:26:21,046 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 216mS.
+2025-09-20 11:26:21,052 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-09-20 11:26:21,116 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-09-20 11:26:21,125 [INFO] ApiDbMcu:532 - Load IP Config File for FATFS
+2025-09-20 11:26:21,128 [INFO] ApiDbMcu:532 - Load IP Config File for FREERTOS
+2025-09-20 11:26:21,128 [INFO] ApiDbMcu:532 - Load IP Config File for LIBJPEG
+2025-09-20 11:26:21,134 [INFO] ApiDbMcu:532 - Load IP Config File for MBEDTLS
+2025-09-20 11:26:21,143 [INFO] ApiDbMcu:532 - Load IP Config File for USB_HOST

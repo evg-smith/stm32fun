@@ -1,0 +1,6 @@
+21:32:47 **** Incremental Build of configuration Default for project STM32F411_USB_AUDIO_DAC-main ****
+make all 
+make: Nothing to be done for 'all'.
+
+21:32:47 Build Finished. 0 errors, 0 warnings. (took 274ms)
+
