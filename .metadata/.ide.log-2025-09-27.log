@@ -1,0 +1,43 @@
+2025-09-28 00:06:42,833 [INFO] CADModel:198 - CPN selected (Project mode): STM32F411CEU6
+2025-09-28 00:06:42,863 [INFO] CADModel:200 - Internet connection configuration mode: 1
+2025-09-28 00:06:42,864 [INFO] CADModel:203 - rpn retrievedSTM32F411CE
+2025-09-28 00:06:42,864 [INFO] WebAppUi:664 - RPN selected STM32F411CE
+2025-09-28 00:06:42,864 [INFO] WebAppUi:665 - RefName selected STM32F411CEUx
+2025-09-28 00:06:42,864 [INFO] WebAppUi:666 - CPN selected STM32F411CEU6
+2025-09-28 00:06:42,872 [INFO] WebAppUi:829 - Which Bigleton in use 2 and which CPN is about STM32F411CEU6
+2025-09-28 00:06:42,884 [INFO] WebAppUi:703 - Have injected Javascript into web application
+2025-09-28 00:06:42,884 [INFO] WebAppUiContainer:153 - Web application run mode: Project CPN: STM32F411CEU6
+2025-09-28 00:08:44,478 [INFO] Gpio:278 - dependency for GPIO [RCC, SYS, USART1]
+2025-09-28 00:12:14,493 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 421747888 Bytes (795869184)
+2025-09-28 00:12:14,569 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 436950192 Bytes (795869184)
+2025-09-28 00:12:14,837 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 486233264 Bytes (795869184)
+2025-09-28 00:12:14,992 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-09-28 00:12:14,992 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-09-28 00:12:14,992 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-09-28 00:12:14,992 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-09-28 00:12:14,992 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-09-28 00:12:14,994 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-09-28 00:12:15,074 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\license.tmp_save
+2025-09-28 00:12:15,301 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\license.tmp
+2025-09-28 00:12:15,342 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\gpio.tmp_save
+2025-09-28 00:12:15,494 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\gpio.tmp
+2025-09-28 00:12:15,559 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\stm32f4xx_it.c_save
+2025-09-28 00:12:15,841 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\stm32f4xx_it.c
+2025-09-28 00:12:15,848 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\stm32f4xx_it.h_save
+2025-09-28 00:12:15,946 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\stm32f4xx_it.h
+2025-09-28 00:12:15,963 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\stm32f4xx_hal_msp.c_save
+2025-09-28 00:12:16,120 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\stm32f4xx_hal_msp.c
+2025-09-28 00:12:16,127 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\system.tmp_save
+2025-09-28 00:12:16,206 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\MXTmpFiles\system.tmp
+2025-09-28 00:12:16,224 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-09-28 00:12:16,317 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\stm32f4xx_hal_conf.h
+2025-09-28 00:12:16,358 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\main.h_save
+2025-09-28 00:12:16,476 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Inc\main.h
+2025-09-28 00:12:16,485 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\main.c_save
+2025-09-28 00:12:16,617 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_blink\Core\Src\main.c
+2025-09-28 00:12:17,117 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 238mS.
+2025-09-28 00:12:17,120 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-09-28 00:12:17,216 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-09-28 00:12:18,172 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1051mS.
+2025-09-28 00:12:18,172 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-09-28 00:12:18,176 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
