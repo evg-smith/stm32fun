@@ -22,7 +22,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "globals.h"
-#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -123,24 +122,21 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint32_t next_toggle = HAL_GetTick();  // time of next LED toggle
-  uint32_t loop_cnt = 0;
+  uint32_t last_tick = HAL_GetTick(), next_tick, loop_cnt = 0;
 
   while (1)
   {
 	  setDelay();
 
 	  uint16_t delay = blink_delays[blink_index];
-	  uint32_t now = HAL_GetTick();
-
-	  if (now >= next_toggle) {
+	  if (HAL_GetTick() - last_tick >= delay) {
 		  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
-		  printf("Tick %lu (loop count = %lu)\r\n", next_toggle, loop_cnt);
-		  next_toggle += delay;   // schedule next toggle
-		  loop_cnt = 0;
+		  printf("Tick %lu (loop count = %lu)\r\n", last_tick, loop_cnt);
+		  last_tick += delay;
 	  }
 
 	  loop_cnt++;
+
 
 
     /* USER CODE END WHILE */

@@ -1,0 +1,25 @@
+/*
+ * timers.c
+ *
+ *  Created on: Sep 28, 2025
+ *      Author: eevgs
+ */
+
+
+#include "main.h"
+
+/* Called by HAL when TIM2 overflows */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+    if (htim->Instance == TIM2) {
+        /* Increment tick counter */
+        static uint16_t tick_counter = 0;
+        tick_counter++;
+
+        /* Toggle LED when counter reaches delay */
+        if (tick_counter >= current_delay) {
+            HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+            tick_counter = 0;
+        }
+    }
+}
