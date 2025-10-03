@@ -1,0 +1,17 @@
+18:33:50 **** Incremental Build of configuration Debug for project blackpill_timer ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "blackpill_timer.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\blackpill_timer\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blackpill_timer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: blackpill_timer.elf
+ 
+arm-none-eabi-size  blackpill_timer.elf 
+arm-none-eabi-objdump -h -S blackpill_timer.elf  > "blackpill_timer.list"
+   text	   data	    bss	    dec	    hex	filename
+   8340	     12	   1644	   9996	   270c	blackpill_timer.elf
+Finished building: default.size.stdout
+ 
+Finished building: blackpill_timer.list
+ 
+
+18:33:51 Build Finished. 0 errors, 0 warnings. (took 738ms)
+

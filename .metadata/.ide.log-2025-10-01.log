@@ -1,0 +1,158 @@
+2025-10-01 21:17:46,746 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] Exception in thread "AWT-EventQueue-0" java.lang.ClassCastException: class sun.awt.windows.WEmbeddedFrame cannot be cast to class javax.swing.JFrame (sun.awt.windows.WEmbeddedFrame and javax.swing.JFrame are in module java.desktop of loader 'bootstrap')
+2025-10-01 21:17:46,752 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.plugins.clock.ClockConfigurationView.activatePlugin(ClockConfigurationView.java:424)
+2025-10-01 21:17:46,753 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at com.st.microxplorer.maingui.MainPanel$1.stateChanged(MainPanel.java:385)
+2025-10-01 21:17:46,754 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.fireStateChanged(JTabbedPane.java:446)
+2025-10-01 21:17:46,755 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane$ModelListener.stateChanged(JTabbedPane.java:297)
+2025-10-01 21:17:46,756 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.fireStateChanged(DefaultSingleSelectionModel.java:148)
+2025-10-01 21:17:46,756 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.DefaultSingleSelectionModel.setSelectedIndex(DefaultSingleSelectionModel.java:79)
+2025-10-01 21:17:46,758 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndexImpl(JTabbedPane.java:650)
+2025-10-01 21:17:46,759 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JTabbedPane.setSelectedIndex(JTabbedPane.java:625)
+2025-10-01 21:17:46,760 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.plaf.basic.BasicTabbedPaneUI$Handler.mousePressed(BasicTabbedPaneUI.java:4140)
+2025-10-01 21:17:46,761 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6618)
+2025-10-01 21:17:46,762 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3398)
+2025-10-01 21:17:46,762 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.processEvent(Component.java:6386)
+2025-10-01 21:17:46,763 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.processEvent(Container.java:2266)
+2025-10-01 21:17:46,764 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:4996)
+2025-10-01 21:17:46,764 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2324)
+2025-10-01 21:17:46,765 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+2025-10-01 21:17:46,766 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948)
+2025-10-01 21:17:46,766 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4572)
+2025-10-01 21:17:46,767 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516)
+2025-10-01 21:17:46,768 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2310)
+2025-10-01 21:17:46,768 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4828)
+2025-10-01 21:17:46,769 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775)
+2025-10-01 21:17:46,769 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:720)
+2025-10-01 21:17:46,770 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:714)
+2025-10-01 21:17:46,771 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+2025-10-01 21:17:46,772 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+2025-10-01 21:17:46,773 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98)
+2025-10-01 21:17:46,774 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:747)
+2025-10-01 21:17:46,774 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+2025-10-01 21:17:46,775 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+2025-10-01 21:17:46,776 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87)
+2025-10-01 21:17:46,776 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:744)
+2025-10-01 21:17:46,778 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+2025-10-01 21:17:46,779 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+2025-10-01 21:17:46,781 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+2025-10-01 21:17:46,781 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+2025-10-01 21:17:46,782 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+2025-10-01 21:17:46,783 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)
+2025-10-01 21:17:50,603 [INFO] I2sManager:658 - 4.8E7
+2025-10-01 21:17:50,603 [INFO] I2sManager:195 - I2S Clock Value : 4.8E7
+2025-10-01 21:17:50,604 [INFO] I2sManager:553 - AudioClock : 7978Divider : 94Odd : 0
+2025-10-01 21:17:52,283 [INFO] I2sManager:658 - 4.8E7
+2025-10-01 21:17:52,283 [INFO] I2sManager:195 - I2S Clock Value : 4.8E7
+2025-10-01 21:17:52,283 [INFO] I2sManager:553 - AudioClock : 7978Divider : 94Odd : 0
+2025-10-01 21:18:22,907 [INFO] I2sManager:658 - 4.8E7
+2025-10-01 21:18:22,907 [INFO] I2sManager:195 - I2S Clock Value : 4.8E7
+2025-10-01 21:18:22,907 [INFO] I2sManager:553 - AudioClock : 7978Divider : 94Odd : 0
+2025-10-01 21:31:37,894 [INFO] I2sManager:658 - 1.0971428571428573E8
+2025-10-01 21:31:37,894 [INFO] I2sManager:195 - I2S Clock Value : 1.0971428571428573E8
+2025-10-01 21:31:37,894 [INFO] I2sManager:553 - AudioClock : 7992Divider : 214Odd : 1
+2025-10-01 21:31:56,847 [INFO] I2sManager:658 - 1.4742857142857143E8
+2025-10-01 21:31:56,847 [INFO] I2sManager:195 - I2S Clock Value : 1.4742857142857143E8
+2025-10-01 21:32:02,134 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:32:02,134 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:32:02,134 [INFO] I2sManager:553 - AudioClock : 7998Divider : 192Odd : 0
+2025-10-01 21:32:12,132 [INFO] I2sManager:658 - 1.1466666666666667E8
+2025-10-01 21:32:12,133 [INFO] I2sManager:195 - I2S Clock Value : 1.1466666666666667E8
+2025-10-01 21:32:12,133 [INFO] I2sManager:553 - AudioClock : 7998Divider : 224Odd : 0
+2025-10-01 21:32:13,566 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:32:13,566 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:32:13,566 [INFO] I2sManager:553 - AudioClock : 7998Divider : 192Odd : 0
+2025-10-01 21:32:14,928 [INFO] I2sManager:658 - 8.6E7
+2025-10-01 21:32:14,928 [INFO] I2sManager:195 - I2S Clock Value : 8.6E7
+2025-10-01 21:32:14,928 [INFO] I2sManager:553 - AudioClock : 7998Divider : 168Odd : 0
+2025-10-01 21:32:16,797 [INFO] I2sManager:658 - 7.644444444444445E7
+2025-10-01 21:32:16,797 [INFO] I2sManager:195 - I2S Clock Value : 7.644444444444445E7
+2025-10-01 21:32:16,797 [INFO] I2sManager:553 - AudioClock : 7989Divider : 149Odd : 1
+2025-10-01 21:32:18,267 [INFO] I2sManager:658 - 6.88E7
+2025-10-01 21:32:18,267 [INFO] I2sManager:195 - I2S Clock Value : 6.88E7
+2025-10-01 21:32:18,267 [INFO] I2sManager:553 - AudioClock : 7992Divider : 134Odd : 1
+2025-10-01 21:32:20,389 [INFO] I2sManager:658 - 6.2545454545454554E7
+2025-10-01 21:32:20,389 [INFO] I2sManager:195 - I2S Clock Value : 6.2545454545454554E7
+2025-10-01 21:32:20,389 [INFO] I2sManager:553 - AudioClock : 8010Divider : 122Odd : 0
+2025-10-01 21:32:23,133 [INFO] I2sManager:658 - 5.7333333333333336E7
+2025-10-01 21:32:23,133 [INFO] I2sManager:195 - I2S Clock Value : 5.7333333333333336E7
+2025-10-01 21:32:23,133 [INFO] I2sManager:553 - AudioClock : 7998Divider : 112Odd : 0
+2025-10-01 21:32:25,035 [INFO] I2sManager:658 - 3.1272727272727277E7
+2025-10-01 21:32:25,035 [INFO] I2sManager:195 - I2S Clock Value : 3.1272727272727277E7
+2025-10-01 21:32:25,035 [INFO] I2sManager:553 - AudioClock : 8010Divider : 61Odd : 0
+2025-10-01 21:32:27,963 [INFO] I2sManager:658 - 1.72E8
+2025-10-01 21:32:27,963 [INFO] I2sManager:195 - I2S Clock Value : 1.72E8
+2025-10-01 21:32:30,108 [INFO] I2sManager:658 - 1.376E8
+2025-10-01 21:32:30,108 [INFO] I2sManager:195 - I2S Clock Value : 1.376E8
+2025-10-01 21:32:53,851 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:32:53,852 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:32:53,852 [INFO] I2sManager:553 - AudioClock : 7998Divider : 192Odd : 0
+2025-10-01 21:37:21,508 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:37:21,508 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:37:21,508 [INFO] I2sManager:553 - AudioClock : 7998Divider : 192Odd : 0
+2025-10-01 21:37:21,533 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,450x117,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-01 21:37:30,186 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:37:30,186 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:37:30,186 [INFO] I2sManager:553 - AudioClock : 7998Divider : 192Odd : 0
+2025-10-01 21:37:48,322 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-01 21:37:48,337 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:37:48,337 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:37:48,337 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:37:48,358 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-01 21:38:21,198 [INFO] I2sManager:658 - 1.72E8
+2025-10-01 21:38:21,198 [INFO] I2sManager:195 - I2S Clock Value : 1.72E8
+2025-10-01 21:38:21,198 [INFO] I2sManager:553 - AudioClock : 95982Divider : 28Odd : 0
+2025-10-01 21:38:21,264 [INFO] I2sManager:658 - 1.72E8
+2025-10-01 21:38:21,264 [INFO] I2sManager:195 - I2S Clock Value : 1.72E8
+2025-10-01 21:38:21,264 [INFO] I2sManager:553 - AudioClock : 95982Divider : 28Odd : 0
+2025-10-01 21:38:22,549 [INFO] I2sManager:658 - 1.376E8
+2025-10-01 21:38:22,549 [INFO] I2sManager:195 - I2S Clock Value : 1.376E8
+2025-10-01 21:38:22,549 [INFO] I2sManager:553 - AudioClock : 95555Divider : 22Odd : 1
+2025-10-01 21:38:22,653 [INFO] I2sManager:658 - 1.376E8
+2025-10-01 21:38:22,653 [INFO] I2sManager:195 - I2S Clock Value : 1.376E8
+2025-10-01 21:38:22,654 [INFO] I2sManager:553 - AudioClock : 95555Divider : 22Odd : 1
+2025-10-01 21:38:23,843 [INFO] I2sManager:658 - 1.376E8
+2025-10-01 21:38:23,844 [INFO] I2sManager:195 - I2S Clock Value : 1.376E8
+2025-10-01 21:38:23,844 [INFO] I2sManager:553 - AudioClock : 95555Divider : 22Odd : 1
+2025-10-01 21:38:28,225 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:38:28,225 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:38:28,225 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:38:28,288 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:38:28,288 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:38:28,288 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:38:29,449 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:38:29,449 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:38:29,449 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:39:26,651 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:39:26,651 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:39:26,651 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:50,419 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:50,419 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:50,419 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:50,490 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:50,491 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:50,491 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:54,036 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:54,036 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:54,036 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:54,101 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:54,101 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:54,101 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:59,752 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:59,752 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:59,752 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:44:59,806 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:44:59,806 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:44:59,806 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:45:51,548 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:45:51,549 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:45:51,549 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:45:51,613 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:45:51,613 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:45:51,613 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:45:57,825 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:45:57,825 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:45:57,825 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 21:45:57,881 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-01 21:45:57,881 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-01 21:45:57,881 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-01 22:50:10,308 [INFO] WebApp:194 - Connection lost
+2025-10-01 23:43:33,211 [INFO] WebApp:191 - Connection restablished

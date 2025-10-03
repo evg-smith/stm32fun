@@ -1,0 +1,59 @@
+2025-10-02 00:09:40,813 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-02 00:09:40,820 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-02 00:09:40,822 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-02 00:09:52,301 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-02 00:09:52,301 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-02 00:09:52,301 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-02 00:52:06,156 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 518320824 Bytes (1073741824)
+2025-10-02 00:52:06,273 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 536326568 Bytes (1073741824)
+2025-10-02 00:52:06,675 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 611281944 Bytes (1073741824)
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-02 00:52:06,895 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-02 00:52:06,896 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-02 00:52:07,096 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\license.tmp_save
+2025-10-02 00:52:07,279 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\license.tmp
+2025-10-02 00:52:07,373 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\gpio.tmp_save
+2025-10-02 00:52:07,483 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\gpio.tmp
+2025-10-02 00:52:07,598 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-02 00:52:07,617 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\stm32f4xx_it.c_save
+2025-10-02 00:52:07,903 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\stm32f4xx_it.c
+2025-10-02 00:52:07,911 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\stm32f4xx_it.h_save
+2025-10-02 00:52:07,990 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\stm32f4xx_it.h
+2025-10-02 00:52:08,003 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-02 00:52:08,185 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\stm32f4xx_hal_msp.c
+2025-10-02 00:52:08,191 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\system.tmp_save
+2025-10-02 00:52:08,269 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\MXTmpFiles\system.tmp
+2025-10-02 00:52:08,280 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-02 00:52:08,357 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-02 00:52:08,387 [INFO] ApiDbMcu:532 - Load IP Config File for I2S1
+2025-10-02 00:52:08,389 [INFO] ApiDbMcu:532 - Load IP Config File for USB_OTG_FS
+2025-10-02 00:52:08,395 [INFO] ApiDbMcu:532 - Load IP Config File for RCC
+2025-10-02 00:52:08,396 [WARN] IPConfigManager:3811 - IP not found : USB_OTG
+2025-10-02 00:52:08,396 [WARN] CodeGenerator:4259 - IP not found : null
+2025-10-02 00:52:08,403 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\main.h_save
+2025-10-02 00:52:08,503 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Inc\main.h
+2025-10-02 00:52:08,510 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\main.c_save
+2025-10-02 00:52:08,618 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\blackpill_soundcard\Core\Src\main.c
+2025-10-02 00:52:08,998 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 214mS.
+2025-10-02 00:52:09,001 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-02 00:52:09,070 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-02 00:52:09,078 [INFO] ApiDbMcu:532 - Load IP Config File for FATFS
+2025-10-02 00:52:09,083 [INFO] ApiDbMcu:532 - Load IP Config File for FREERTOS
+2025-10-02 00:52:09,086 [INFO] ApiDbMcu:532 - Load IP Config File for LIBJPEG
+2025-10-02 00:52:09,091 [INFO] ApiDbMcu:532 - Load IP Config File for MBEDTLS
+2025-10-02 00:52:09,098 [INFO] ApiDbMcu:532 - Load IP Config File for USB_DEVICE
+2025-10-02 00:52:09,102 [INFO] ApiDbMcu:532 - Load IP Config File for USB_HOST
+2025-10-02 00:52:09,774 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 774mS.
+2025-10-02 00:52:09,775 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-02 00:52:09,776 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-10-02 00:52:59,471 [INFO] I2sManager:658 - 9.828571428571428E7
+2025-10-02 00:52:59,471 [INFO] I2sManager:195 - I2S Clock Value : 9.828571428571428E7
+2025-10-02 00:52:59,474 [INFO] I2sManager:553 - AudioClock : 95982Divider : 16Odd : 0
+2025-10-02 02:36:58,653 [INFO] WebApp:194 - Connection lost
+2025-10-02 22:21:17,038 [INFO] WebApp:191 - Connection restablished
+2025-10-02 22:41:24,390 [INFO] WebApp:194 - Connection lost
+2025-10-02 22:56:26,145 [INFO] WebApp:191 - Connection restablished

@@ -1,0 +1,38 @@
+#include "stm32f411xe.h"
+#include "stm32f4xx.h"
+#include <stdint.h>
+#include "string.h"
+
+uint8_t UART_RX(uint8_t temp);
+int msTicks = 0;
+void delayMs(int ms);
+
+int main() {
+	// Enable clocks
+	RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN | RCC_AHB1ENR_GPIOCEN;
+	RCC->APB1ENR |= RCC_APB1ENR_USART2EN;   // not used here, but OK
+
+	// --- Setup board User KEY button (PA0) ---
+	GPIOA->MODER &= ~0x03;        // MODER0 = 00 → PA0 as input
+	GPIOA->PUPDR &= ~0x03;        // Clear PUPDR0 bits
+	GPIOA->PUPDR |= 0x01;         // PUPDR0 = 01 → pull-up enabled
+
+	// --- Setup board LED (PC13) ---
+	// MODER13: clear both bits first
+	GPIOC->MODER &= ~(0x3 << (2 * 13));
+	// Then set to 01 = output
+	GPIOC->MODER |=  (0x1 << (2 * 13));
+
+	// Default: turn LED off (PC13 high)
+	GPIOC->ODR |= (1 << 13);
+
+	while (1) {
+	    if (GPIOA->IDR & (1 << 0)) {
+	        // Button released → LED off
+	        GPIOC->ODR |= (1 << 13);   // PC13 high → LED off
+	    } else {
+	        // Button pressed → LED on
+	        GPIOC->ODR &= ~(1 << 13);  // PC13 low → LED on
+	    }
+	}
+}
