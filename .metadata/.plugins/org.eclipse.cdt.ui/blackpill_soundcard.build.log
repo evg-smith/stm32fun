@@ -1,17 +1,17 @@
-00:54:17 **** Incremental Build of configuration Debug for project blackpill_soundcard ****
+22:58:54 **** Build of configuration Debug for project blackpill_soundcard ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Drivers/USB/Src/usb.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Drivers/USB/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/USB/Src/usb.d" -MT"Drivers/USB/Src/usb.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/USB/Src/usb.o"
 arm-none-eabi-gcc -o "blackpill_soundcard.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\blackpill_soundcard\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blackpill_soundcard.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: blackpill_soundcard.elf
  
 arm-none-eabi-size  blackpill_soundcard.elf 
 arm-none-eabi-objdump -h -S blackpill_soundcard.elf  > "blackpill_soundcard.list"
    text	   data	    bss	    dec	    hex	filename
-   4876	     12	   1572	   6460	   193c	blackpill_soundcard.elf
+   6252	     12	   1580	   7844	   1ea4	blackpill_soundcard.elf
 Finished building: default.size.stdout
  
 Finished building: blackpill_soundcard.list
  
 
-00:54:17 Build Finished. 0 errors, 0 warnings. (took 660ms)
+22:58:57 Build Finished. 0 errors, 0 warnings. (took 3s.8ms)
 

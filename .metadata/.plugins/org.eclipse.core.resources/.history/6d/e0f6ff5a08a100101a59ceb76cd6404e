@@ -1,0 +1,497 @@
+/*
+ * STM32F411 — Minimal USB HID (Keyboard-style) device, register-only
+ * - EP0 control (64B) for enumeration
+ * - EP1 IN (interrupt) for HID input reports (8 bytes)
+ * - No HAL, no Cube — direct register use
+ * - Assumes system clock & vectors already set; enable OTG_FS IRQ in NVIC
+ *
+ * Notes:
+ *  - GPIOA: PA11 (DM), PA12 (DP) → AF10, very high speed
+ *  - VBUS sensing disabled (self-powered style) to keep things simple
+ *  - FIFO sizes are conservative for FS
+ */
+
+#include "stm32f4xx.h"
+#include <stdint.h>
+
+// ============================
+// Helpers/macros
+// ============================
+#define USBx                USB_OTG_FS
+#define USBx_DEVICE         ((USB_OTG_DeviceTypeDef *)(USB_OTG_FS_PERIPH_BASE + USB_OTG_DEVICE_BASE))
+#define USBx_INEP(i)        ((USB_OTG_INEndpointTypeDef *)(USB_OTG_FS_PERIPH_BASE + USB_OTG_IN_ENDPOINT_BASE  + ((i) * 0x20UL)))
+#define USBx_OUTEP(i)       ((USB_OTG_OUTEndpointTypeDef*)(USB_OTG_FS_PERIPH_BASE + USB_OTG_OUT_ENDPOINT_BASE + ((i) * 0x20UL)))
+
+#define EP0_MAX_PKT         (64UL)
+#define EP1_IN_ADDR         (0x81UL)   // endpoint address (IN, #1)
+#define EP1_MPS             (8UL)      // 8-byte HID report
+
+// EPx DIEPCTL/DOEPCTL bits helper
+#define USB_SET_NAK_IN(i)   (USBx_INEP(i)->DIEPCTL |= USB_OTG_DIEPCTL_SNAK)
+#define USB_CLR_NAK_IN(i)   (USBx_INEP(i)->DIEPCTL |= USB_OTG_DIEPCTL_CNAK)
+#define USB_SET_NAK_OUT(i)  (USBx_OUTEP(i)->DOEPCTL |= USB_OTG_DOEPCTL_SNAK)
+#define USB_CLR_NAK_OUT(i)  (USBx_OUTEP(i)->DOEPCTL |= USB_OTG_DOEPCTL_CNAK)
+
+// EP FIFO access (32-bit words)
+static inline void usb_write_fifo(uint32_t ep, const uint8_t *buf, uint16_t len)
+{
+    uint32_t count = (len + 3U) / 4U;
+    volatile uint32_t *fifo = (volatile uint32_t *)(USB_OTG_FIFO_BASE + (ep * 0x1000UL) + USB_OTG_FS_PERIPH_BASE);
+    for (uint32_t i = 0; i < count; ++i) {
+        uint32_t w = 0UL;
+        uint32_t b0 = (i*4UL + 0UL) < len ? buf[i*4UL + 0UL] : 0UL;
+        uint32_t b1 = (i*4UL + 1UL) < len ? buf[i*4UL + 1UL] : 0UL;
+        uint32_t b2 = (i*4UL + 2UL) < len ? buf[i*4UL + 2UL] : 0UL;
+        uint32_t b3 = (i*4UL + 3UL) < len ? buf[i*4UL + 3UL] : 0UL;
+        w = (b3 << 24) | (b2 << 16) | (b1 << 8) | (b0 << 0);
+        *fifo = w;
+    }
+}
+
+// ============================
+// Descriptors (minimal HID keyboard-like)
+// ============================
+
+// Device descriptor
+static const uint8_t dev_desc[] = {
+    18, 1,                 // bLength, bDescriptorType (DEVICE)
+    0x00, 0x02,            // bcdUSB 2.00
+    0x00,                  // bDeviceClass (defined in interface)
+    0x00,                  // bDeviceSubClass
+    0x00,                  // bDeviceProtocol
+    64,                    // bMaxPacketSize0
+    0x83, 0x04,            // idVendor  = 0x0483 (ST example VID) — replace for real product
+    0x40, 0x57,            // idProduct = 0x5740 (example)       — replace for real product
+    0x00, 0x01,            // bcdDevice 1.00
+    1,                     // iManufacturer
+    2,                     // iProduct
+    3,                     // iSerialNumber
+    1                      // bNumConfigurations
+};
+
+// HID report descriptor (8-byte input report: modifiers, reserved, 6 keys) — standard keyboard layout
+static const uint8_t hid_report_desc[] = {
+    0x05, 0x01,  // Usage Page (Generic Desktop)
+    0x09, 0x06,  // Usage (Keyboard)
+    0xA1, 0x01,  // Collection (Application)
+    0x05, 0x07,  //   Usage Page (Key Codes)
+    0x19, 0xE0,  //   Usage Minimum (224)
+    0x29, 0xE7,  //   Usage Maximum (231)
+    0x15, 0x00,  //   Logical Minimum (0)
+    0x25, 0x01,  //   Logical Maximum (1)
+    0x75, 0x01,  //   Report Size (1)
+    0x95, 0x08,  //   Report Count (8)  ; modifier bits
+    0x81, 0x02,  //   Input (Data,Var,Abs)
+    0x95, 0x01,  //   Report Count (1)
+    0x75, 0x08,  //   Report Size (8)
+    0x81, 0x03,  //   Input (Const,Var,Abs) ; reserved
+    0x95, 0x06,  //   Report Count (6)
+    0x75, 0x08,  //   Report Size (8)
+    0x15, 0x00,  //   Logical Minimum (0)
+    0x25, 0x65,  //   Logical Maximum (101)
+    0x05, 0x07,  //   Usage Page (Key Codes)
+    0x19, 0x00,  //   Usage Minimum (0)
+    0x29, 0x65,  //   Usage Maximum (101)
+    0x81, 0x00,  //   Input (Data,Array)
+    0xC0         // End Collection
+};
+
+// HID descriptor (class-specific), referenced from Interface descriptor
+#define HID_DESC_LEN 9
+static const uint8_t hid_desc[] = {
+    0x09, 0x21,           // bLength, bDescriptorType (HID)
+    0x11, 0x01,           // bcdHID 1.11
+    0x00,                 // bCountryCode
+    0x01,                 // bNumDescriptors
+    0x22,                 // bDescriptorType (Report)
+    (uint8_t)sizeof(hid_report_desc), (uint8_t)(sizeof(hid_report_desc) >> 8) // wDescriptorLength
+};
+
+// Configuration + Interface + HID + Endpoint descriptors (one blob)
+static const uint8_t cfg_desc[] = {
+    // Configuration
+    9, 2,                                // bLength, bDescriptorType (CONFIGURATION)
+    (uint8_t)(9+9+HID_DESC_LEN+7), 0x00, // wTotalLength
+    0x01,                                // bNumInterfaces
+    0x01,                                // bConfigurationValue
+    0x00,                                // iConfiguration
+    0xA0,                                // bmAttributes (Bus powered + Remote Wakeup)
+    50,                                  // bMaxPower (100 mA)
+
+    // Interface 0 (HID)
+    9, 4,                                // bLength, bDescriptorType (INTERFACE)
+    0x00,                                // bInterfaceNumber
+    0x00,                                // bAlternateSetting
+    0x01,                                // bNumEndpoints (1 IN)
+    0x03,                                // bInterfaceClass (HID)
+    0x01,                                // bInterfaceSubClass (Boot)
+    0x01,                                // bInterfaceProtocol (Keyboard)
+    0x00,                                // iInterface
+
+    // HID descriptor
+    // (we’ll point to hid_desc block via GET_DESCRIPTOR (report) handler; host parses this item in config tree)
+    0x09, 0x21, 0x11, 0x01, 0x00, 0x01, 0x22,
+    (uint8_t)sizeof(hid_report_desc), (uint8_t)(sizeof(hid_report_desc) >> 8),
+
+    // Endpoint 1 IN (Interrupt)
+    7, 5,                                // bLength, bDescriptorType (ENDPOINT)
+    (uint8_t)EP1_IN_ADDR,                // bEndpointAddress
+    0x03,                                // bmAttributes (Interrupt)
+    (uint8_t)EP1_MPS, 0x00,              // wMaxPacketSize
+    0x0A                                 // bInterval (10 ms)
+};
+
+// String descriptors (Unicode LE)
+static const uint8_t lang_id_str[] = { 0x04, 0x03, 0x09, 0x04 }; // English (US)
+static const uint8_t mfg_str[]     = { 22, 0x03, 'O',0,'p',0,'e',0,'n',0,'A',0,'u',0,'d',0,'i',0,'o',0 };
+static const uint8_t prod_str[]    = { 28, 0x03, 'H',0,'I',0,'D',0,' ',0,'K',0,'e',0,'y',0,'b',0,'o',0,'a',0,'r',0,'d',0 };
+static const uint8_t serial_str[]  = { 18, 0x03, '0',0,'0',0,'0',0,'1',0,'2',0,'3',0,'4',0 };
+
+// ============================
+// EP0 control state
+// ============================
+static uint8_t ep0_setup[8];
+static uint8_t usb_address_pending = 0;
+
+// ============================
+// Low-level init
+// ============================
+
+static void usb_gpio_init(void)
+{
+    // Enable GPIOA clock
+    RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN;
+
+    // PA11 (DM), PA12 (DP) → AF10, very high speed, no pull
+    GPIOA->MODER   &= ~((3UL << (11UL*2UL)) | (3UL << (12UL*2UL)));
+    GPIOA->MODER   |=  ((2UL << (11UL*2UL)) | (2UL << (12UL*2UL)));  // AF
+    GPIOA->OSPEEDR |=  ((3UL << (11UL*2UL)) | (3UL << (12UL*2UL)));  // very high
+    GPIOA->PUPDR   &= ~((3UL << (11UL*2UL)) | (3UL << (12UL*2UL)));  // no pull
+    // AFRH for pins 8..15
+    GPIOA->AFR[1]  &= ~((0xFUL << ((11UL-8UL)*4UL)) | (0xFUL << ((12UL-8UL)*4UL)));
+    GPIOA->AFR[1]  |=  ((10UL  << ((11UL-8UL)*4UL)) | (10UL  << ((12UL-8UL)*4UL))); // AF10
+}
+
+void usb_device_init(void)
+{
+    // Enable OTG FS clock
+    RCC->AHB2ENR |= RCC_AHB2ENR_OTGFSEN;
+
+    usb_gpio_init();
+
+    // Core soft reset
+    USBx->GRSTCTL |= USB_OTG_GRSTCTL_CSRST;
+    while ((USBx->GRSTCTL & USB_OTG_GRSTCTL_CSRST) != 0UL);
+
+    // Select FS internal PHY
+    USBx->GUSBCFG |= USB_OTG_GUSBCFG_PHYSEL;
+
+    // Force device mode
+    USBx->GUSBCFG |= USB_OTG_GUSBCFG_FDMOD;
+    for (volatile uint32_t i = 0; i < 2000UL; ++i) { __NOP(); }
+
+    // Disable VBUS sensing (self-powered style) to simplify bring-up
+    USBx->GCCFG |= USB_OTG_GCCFG_NOVBUSSENS;
+    USBx->GCCFG &= ~(USB_OTG_GCCFG_VBUSBSEN | USB_OTG_GCCFG_VBUSASEN);
+
+    // Device speed: Full Speed
+    USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DSPD;
+    USBx_DEVICE->DCFG |=  USB_OTG_DCFG_DSPD_0; // 01: Full speed
+
+    // FIFOs (words). RX FIFO must hold setup + status + data.
+    // Safe picks: RX 128 words, TX0 64 words, TX1 32 words.
+    USBx->GRXFSIZ = 128UL;
+    USBx->DIEPTXF0_HNPTXFSIZ = (64UL << 16) | 128UL;          // TX0 size | RX start
+    USBx->DIEPTXF[0]         = (32UL << 16) | (128UL + 64UL); // TX1 size | start
+
+    // Unmask core interrupts
+    USBx->GINTMSK = 0UL;
+    USBx->GINTMSK |= USB_OTG_GINTMSK_USBRST;   // Reset
+    USBx->GINTMSK |= USB_OTG_GINTMSK_ENUMDNEM; // Enumeration done
+    USBx->GINTMSK |= USB_OTG_GINTMSK_RXFLVLM;  // RX FIFO non-empty
+    USBx->GINTMSK |= USB_OTG_GINTMSK_IEPINT;   // IN EP
+    USBx->GINTMSK |= USB_OTG_GINTMSK_OEPINT;   // OUT EP
+    USBx->GINTMSK |= USB_OTG_GINTMSK_SOFM;     // SOF (optional)
+    USBx->GAHBCFG |= USB_OTG_GAHBCFG_GINT;     // Global int enable
+
+    // Enable USB device (exit soft-disconnect)
+    USBx->DCTL &= ~USB_OTG_DCTL_SDIS;
+
+    // NVIC
+    NVIC_EnableIRQ(OTG_FS_IRQn);
+}
+
+// ============================
+// EP and control helpers
+// ============================
+
+static void ep0_init_after_reset(void)
+{
+    // Clear DAINT/ masks
+    USBx_DEVICE->DAINTMSK = 0UL;
+    USBx_DEVICE->DOEPMSK  = 0UL;
+    USBx_DEVICE->DIEPMSK  = 0UL;
+
+    // EP0 max packet = 64
+    USBx_OUTEP(0)->DOEPCTL &= ~USB_OTG_DOEPCTL_MPSIZ;
+    USBx_OUTEP(0)->DOEPCTL |=  USB_OTG_DOEPCTL_MPSIZ_1 | USB_OTG_DOEPCTL_MPSIZ_0; // 64
+
+    USBx_INEP(0)->DIEPCTL &= ~USB_OTG_DIEPCTL_MPSIZ;
+    USBx_INEP(0)->DIEPCTL |=  64UL;
+
+    // Enable EP0 interrupts
+    USBx_DEVICE->DAINTMSK |= (1UL << 0) | (1UL << 16); // IN EP0, OUT EP0
+    // Unmask setup + XFRC
+    USBx_DEVICE->DOEPMSK  |= USB_OTG_DOEPMSK_STUPM | USB_OTG_DOEPMSK_XFRCM;
+    USBx_DEVICE->DIEPMSK  |= USB_OTG_DIEPMSK_XFRCM;
+
+    // Prepare OUT EP0 to receive SETUP packets (setup pkt count = 3; one 3-word setup pkt)
+    USBx_OUTEP(0)->DOEPTSIZ = (1UL << 29) | (3UL << 19) | (8UL); // SUPCNT=1, PKTCNT=1, XFRSIZ=8
+    USB_CLR_NAK_OUT(0);
+    USBx_OUTEP(0)->DOEPCTL |= USB_OTG_DOEPCTL_EPENA;
+}
+
+static void ep1_in_config(void)
+{
+    // Configure EP1 IN as interrupt, MPS=8, active endpoint
+    USBx_INEP(1)->DIEPCTL = 0UL;
+    USBx_INEP(1)->DIEPCTL |= (EP1_MPS & USB_OTG_DIEPCTL_MPSIZ_Msk);
+    USBx_INEP(1)->DIEPCTL |= (3UL << 18);  // EPTYP=Interrupt (0=CTRL,1=ISOC,2=BULK,3=INTR)
+    USBx_INEP(1)->DIEPCTL |= USB_OTG_DIEPCTL_USBAEP;
+    USBx_INEP(1)->DIEPINT  = 0xFFFFFFFFUL; // clear pending
+    USBx_DEVICE->DAINTMSK |= (1UL << 1);   // unmask IN EP1
+}
+
+static void ep1_send_report(const uint8_t *buf, uint16_t len)
+{
+    // Program transfer size and packet count (1 packet)
+    USBx_INEP(1)->DIEPTSIZ = ((1UL << 19) | (uint32_t)len);
+    USB_CLR_NAK_IN(1);
+    USBx_INEP(1)->DIEPCTL |= USB_OTG_DIEPCTL_EPENA | USB_OTG_DIEPCTL_CNAK;
+    usb_write_fifo(1, buf, len);
+}
+
+// ============================
+// Standard request handling (very small subset)
+// ============================
+
+static void ep0_tx(const uint8_t *buf, uint16_t len)
+{
+    // Limit by host wLength (already trimmed by caller ideally)
+    USBx_INEP(0)->DIEPTSIZ = ((1UL << 19) | (uint32_t)len);
+    USB_CLR_NAK_IN(0);
+    USBx_INEP(0)->DIEPCTL |= USB_OTG_DIEPCTL_EPENA | USB_OTG_DIEPCTL_CNAK;
+    usb_write_fifo(0, buf, len);
+}
+
+static void ep0_status_in(void)
+{
+    USBx_INEP(0)->DIEPTSIZ = ((1UL << 19) | 0UL);
+    USBx_INEP(0)->DIEPCTL |= USB_OTG_DIEPCTL_EPENA | USB_OTG_DIEPCTL_CNAK;
+}
+
+static void handle_get_descriptor(uint16_t wValue, uint16_t wIndex, uint16_t wLength)
+{
+    uint8_t dtype  = (uint8_t)(wValue >> 8);
+    uint8_t dindex = (uint8_t)(wValue & 0xFFU);
+
+    const uint8_t *ptr = 0;
+    uint16_t plen = 0;
+
+    switch (dtype) {
+    case 1: // DEVICE
+        ptr = dev_desc; plen = sizeof(dev_desc); break;
+    case 2: // CONFIGURATION
+        ptr = cfg_desc; plen = sizeof(cfg_desc); break;
+    case 3: // STRING
+        if (dindex == 0) { ptr = lang_id_str; plen = sizeof(lang_id_str); }
+        else if (dindex == 1) { ptr = mfg_str; plen = sizeof(mfg_str); }
+        else if (dindex == 2) { ptr = prod_str; plen = sizeof(prod_str); }
+        else if (dindex == 3) { ptr = serial_str; plen = sizeof(serial_str); }
+        break;
+    case 0x21: // HID (class descriptor) — requested via config tree rarely over EP0; safe to serve
+        ptr = hid_desc; plen = sizeof(hid_desc); break;
+    case 0x22: // HID Report descriptor
+        ptr = hid_report_desc; plen = sizeof(hid_report_desc); break;
+    default:
+        break;
+    }
+
+    if (ptr == 0) { // Stall if unsupported
+        USBx_INEP(0)->DIEPCTL |= USB_OTG_DIEPCTL_STALL;
+        USBx_OUTEP(0)->DOEPCTL |= USB_OTG_DOEPCTL_STALL;
+        return;
+    }
+
+    if (plen > wLength) plen = wLength;
+    ep0_tx(ptr, plen);
+}
+
+static void handle_standard_request(void)
+{
+    uint8_t  bmRequestType = ep0_setup[0];
+    uint8_t  bRequest      = ep0_setup[1];
+    uint16_t wValue        = (uint16_t)(ep0_setup[2] | (ep0_setup[3] << 8));
+    uint16_t wIndex        = (uint16_t)(ep0_setup[4] | (ep0_setup[5] << 8));
+    uint16_t wLength       = (uint16_t)(ep0_setup[6] | (ep0_setup[7] << 8));
+
+    switch (bRequest) {
+    case 6: // GET_DESCRIPTOR
+        handle_get_descriptor(wValue, wIndex, wLength);
+        break;
+
+    case 5: // SET_ADDRESS
+        usb_address_pending = (uint8_t)(wValue & 0x7FU);
+        ep0_status_in(); // status stage first; address applied after IN xfer complete
+        break;
+
+    case 9: // SET_CONFIGURATION
+        ep1_in_config(); // enable EP1 IN once configured
+        ep0_status_in();
+        break;
+
+    default:
+        // For unhandled requests: STALL
+        USBx_INEP(0)->DIEPCTL |= USB_OTG_DIEPCTL_STALL;
+        USBx_OUTEP(0)->DOEPCTL |= USB_OTG_DOEPCTL_STALL;
+        break;
+    }
+}
+
+// Minimal HID class request handling (SET_IDLE / GET_REPORT etc.)
+// We accept SET_IDLE and just status stage IN.
+static void handle_class_request(void)
+{
+    uint8_t  bRequest = ep0_setup[1];
+    (void)bRequest;
+    // 0x0A = SET_IDLE, 0x01 = GET_REPORT, etc.
+    ep0_status_in();
+}
+
+// ============================
+// IRQ handler
+// ============================
+
+void OTG_FS_IRQHandler(void)
+{
+    uint32_t gint = USBx->GINTSTS & USBx->GINTMSK;
+
+    // USB Reset
+    if (gint & USB_OTG_GINTSTS_USBRST) {
+        // Clear device address
+        USBx_DEVICE->DCFG &= ~USB_OTG_DCFG_DAD;
+
+        // Flush TX FIFOs
+        USBx->GRSTCTL = (0x10UL << 6) | USB_OTG_GRSTCTL_TXFFLSH; // all TX FIFOs
+        while (USBx->GRSTCTL & USB_OTG_GRSTCTL_TXFFLSH);
+
+        // Flush RX FIFO
+        USBx->GRSTCTL = USB_OTG_GRSTCTL_RXFFLSH;
+        while (USBx->GRSTCTL & USB_OTG_GRSTCTL_RXFFLSH);
+
+        // EP0 fresh init
+        ep0_init_after_reset();
+
+        USBx->GINTSTS = USB_OTG_GINTSTS_USBRST; // clear
+    }
+
+    // Enumeration done
+    if (gint & USB_OTG_GINTSTS_ENUMDNE) {
+        // Already configured FS speed; set EP0 MPS if needed (64)
+        USBx->GINTSTS = USB_OTG_GINTSTS_ENUMDNE;
+    }
+
+    // RX FIFO non-empty (read packets: SETUP/DATA)
+    if (gint & USB_OTG_GINTSTS_RXFLVL) {
+        uint32_t grxstsp = USBx->GRXSTSP; // pop status
+        uint32_t epnum   = (grxstsp & USB_OTG_GRXSTSP_EPNUM_Msk) >> USB_OTG_GRXSTSP_EPNUM_Pos;
+        uint32_t pktsts  = (grxstsp & USB_OTG_GRXSTSP_PKTSTS_Msk) >> USB_OTG_GRXSTSP_PKTSTS_Pos;
+        uint32_t bcnt    = (grxstsp & USB_OTG_GRXSTSP_BCNT_Msk)  >> USB_OTG_GRXSTSP_BCNT_Pos;
+
+        if (pktsts == 0x06UL && epnum == 0UL) { // SETUP packet
+            // Read 2 DWORDs (8 bytes) from RX FIFO
+            volatile uint32_t *fifo = (volatile uint32_t *)(USB_OTG_FIFO_BASE + USB_OTG_FS_PERIPH_BASE);
+            uint32_t w0 = *fifo;
+            uint32_t w1 = *fifo;
+            // Store into ep0_setup[0..7]
+            *(uint32_t *)&ep0_setup[0] = w0;
+            *(uint32_t *)&ep0_setup[4] = w1;
+
+            // Decode and handle
+            uint8_t type = ep0_setup[0] & 0x60U;
+            if (type == 0x00U) {
+                handle_standard_request();
+            } else if (type == 0x20U) {
+                handle_class_request();
+            } else {
+                // Stall unsupported
+                USBx_INEP(0)->DIEPCTL |= USB_OTG_DIEPCTL_STALL;
+                USBx_OUTEP(0)->DOEPCTL |= USB_OTG_DOEPCTL_STALL;
+            }
+
+            // Re-arm OUT EP0 for next SETUP
+            USBx_OUTEP(0)->DOEPTSIZ = (1UL << 29) | (3UL << 19) | (8UL);
+            USBx_OUTEP(0)->DOEPCTL  |= USB_OTG_DOEPCTL_EPENA | USB_OTG_DOEPCTL_CNAK;
+        } else {
+            // Discard any data for this minimal example
+            (void)bcnt;
+        }
+    }
+
+    // IN endpoint interrupt
+    if (gint & USB_OTG_GINTSTS_IEPINT) {
+        uint32_t daint = USBx_DEVICE->DAINT & USBx_DEVICE->DAINTMSK;
+
+        // EP0 IN XFRC (complete) — apply pending address after status stage
+        if (daint & (1UL << 0)) {
+            uint32_t diepint = USBx_INEP(0)->DIEPINT;
+            if (diepint & USB_OTG_DIEPINT_XFRC) {
+                USBx_INEP(0)->DIEPINT = USB_OTG_DIEPINT_XFRC;
+                if (usb_address_pending != 0U) {
+                    USBx_DEVICE->DCFG = (USBx_DEVICE->DCFG & ~USB_OTG_DCFG_DAD) |
+                                        ((uint32_t)usb_address_pending << 4);
+                    usb_address_pending = 0;
+                }
+            }
+        }
+
+        // EP1 IN XFRC clear
+        if (daint & (1UL << 1)) {
+            uint32_t diepint1 = USBx_INEP(1)->DIEPINT;
+            if (diepint1 & USB_OTG_DIEPINT_XFRC) {
+                USBx_INEP(1)->DIEPINT = USB_OTG_DIEPINT_XFRC;
+            }
+        }
+    }
+
+    // OUT endpoint interrupt (we only use EP0 OUT for setup/status here)
+    if (gint & USB_OTG_GINTSTS_OEPINT) {
+        uint32_t daint = USBx_DEVICE->DAINT & USBx_DEVICE->DAINTMSK;
+        if (daint & (1UL << 16)) {
+            uint32_t doepint0 = USBx_OUTEP(0)->DOEPINT;
+            if (doepint0 & USB_OTG_DOEPINT_XFRC) {
+                USBx_OUTEP(0)->DOEPINT = USB_OTG_DOEPINT_XFRC;
+            }
+            if (doepint0 & USB_OTG_DOEPINT_STUP) {
+                USBx_OUTEP(0)->DOEPINT = USB_OTG_DOEPINT_STUP;
+            }
+        }
+    }
+
+    // Clear SOF if enabled
+    if (gint & USB_OTG_GINTSTS_SOF) {
+        USBx->GINTSTS = USB_OTG_GINTSTS_SOF;
+    }
+}
+
+// ============================
+// Demo: send a simple HID report
+// Call this periodically (e.g., on a timer) once configured
+// 8-byte keyboard report: [mods, 0, k1, k2, k3, k4, k5, k6]
+// Example presses 'a' (usage 0x04) with no modifiers
+// ============================
+void usb_hid_send_demo_key_a(void)
+{
+    static const uint8_t rpt[8] = { 0, 0, 0x04, 0, 0, 0, 0, 0 };
+    ep1_send_report(rpt, sizeof(rpt));
+}

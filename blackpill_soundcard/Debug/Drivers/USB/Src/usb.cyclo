@@ -1,0 +1,14 @@
+../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+../Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
+../Drivers/USB/Src/usb.c:124:20:usb_write_fifo	6
+../Drivers/USB/Src/usb.c:143:13:usb_gpio_init	1
+../Drivers/USB/Src/usb.c:156:6:usb_device_init	3
+../Drivers/USB/Src/usb.c:216:13:ep0_init_after_reset	1
+../Drivers/USB/Src/usb.c:245:13:ep1_in_config	1
+../Drivers/USB/Src/usb.c:266:13:ep0_tx	1
+../Drivers/USB/Src/usb.c:274:13:ep0_status_in	1
+../Drivers/USB/Src/usb.c:284:13:handle_get_descriptor	13
+../Drivers/USB/Src/usb.c:316:13:handle_standard_request	5
+../Drivers/USB/Src/usb.c:357:6:OTG_FS_IRQHandler	11
+../Drivers/USB/Src/usb.c:420:6:usb_hid_send_demo_key_a	2
+../Drivers/USB/Src/usb.c:439:6:usb_hid_send_key_release	2
