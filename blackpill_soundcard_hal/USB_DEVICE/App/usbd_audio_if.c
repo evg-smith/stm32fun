@@ -23,6 +23,20 @@
 
 /* USER CODE BEGIN INCLUDE */
 
+#define I2S_HANDLE hi2s2              // change to hi2s1 if you used I2S1
+extern I2S_HandleTypeDef I2S_HANDLE;
+
+#ifndef USBD_AUDIO_FREQ
+#define USBD_AUDIO_FREQ 96000U
+#endif
+#ifndef AUDIO_OUT_PACKET
+#define AUDIO_OUT_PACKET (uint16_t)(((USBD_AUDIO_FREQ*3U*2U)/1000U)) // 576
+#endif
+
+#define FRAMES_PER_MS            (USBD_AUDIO_FREQ/1000U)   // 96
+#define I2S_HALFWORDS_PER_MS     (FRAMES_PER_MS*4U)        // 384
+#define I2S_DMA_TOTAL_HALFWORDS  (I2S_HALFWORDS_PER_MS*2U) // 768
+
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,7 +45,9 @@
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-
+static uint16_t i2s_dma_buf[I2S_DMA_TOTAL_HALFWORDS];
+static volatile uint8_t  dma_started = 0;
+static volatile uint32_t dma_playing_half = 0;
 /* USER CODE END PV */
 
 /** @addtogroup STM32_USB_OTG_DEVICE_LIBRARY
@@ -124,7 +140,18 @@ static int8_t AUDIO_PeriodicTC_FS(uint8_t *pbuf, uint32_t size, uint8_t cmd);
 static int8_t AUDIO_GetState_FS(void);
 
 /* USER CODE BEGIN PRIVATE_FUNCTIONS_DECLARATION */
-
+static void usb24_to_i2s32_halfwords(const uint8_t *usb, uint16_t *dst, uint32_t bytes)
+{
+  uint32_t n = bytes / 6U; // frames
+  for (uint32_t i=0;i<n;i++){
+    uint8_t L0=*usb++, L1=*usb++, L2=*usb++;  // LEFT
+    *dst++ = (uint16_t)((L2<<8)|L1);          // high
+    *dst++ = (uint16_t)((L0<<8)|0x00);        // low (pad)
+    uint8_t R0=*usb++, R1=*usb++, R2=*usb++;  // RIGHT
+    *dst++ = (uint16_t)((R2<<8)|R1);
+    *dst++ = (uint16_t)((R0<<8)|0x00);
+  }
+}
 /* USER CODE END PRIVATE_FUNCTIONS_DECLARATION */
 
 /**
@@ -153,10 +180,10 @@ USBD_AUDIO_ItfTypeDef USBD_AUDIO_fops_FS =
 static int8_t AUDIO_Init_FS(uint32_t AudioFreq, uint32_t Volume, uint32_t options)
 {
   /* USER CODE BEGIN 0 */
-  UNUSED(AudioFreq);
-  UNUSED(Volume);
-  UNUSED(options);
-  return (USBD_OK);
+  (void)AudioFreq;(void)Volume;(void)options;
+  for (uint32_t i=0;i<I2S_DMA_TOTAL_HALFWORDS;i++) i2s_dma_buf[i]=0;
+  dma_started=0; dma_playing_half=0;
+  return USBD_OK;
   /* USER CODE END 0 */
 }
 
@@ -232,10 +259,18 @@ static int8_t AUDIO_MuteCtl_FS(uint8_t cmd)
 static int8_t AUDIO_PeriodicTC_FS(uint8_t *pbuf, uint32_t size, uint8_t cmd)
 {
   /* USER CODE BEGIN 5 */
-  UNUSED(pbuf);
-  UNUSED(size);
-  UNUSED(cmd);
-  return (USBD_OK);
+	(void)cmd;
+	uint32_t write_half = dma_playing_half ^ 1U;
+	uint16_t *dst = &i2s_dma_buf[ write_half ? I2S_HALFWORDS_PER_MS : 0 ];
+
+	if (size == AUDIO_OUT_PACKET) usb24_to_i2s32_halfwords(pbuf, dst, size);
+
+	if (!dma_started){
+	dma_started = 1;
+	if (HAL_I2S_Transmit_DMA(&I2S_HANDLE, i2s_dma_buf, I2S_DMA_TOTAL_HALFWORDS) != HAL_OK)
+	  return USBD_FAIL;
+	}
+	return USBD_OK;
   /* USER CODE END 5 */
 }
 
@@ -273,7 +308,8 @@ void HalfTransfer_CallBack_FS(void)
 }
 
 /* USER CODE BEGIN PRIVATE_FUNCTIONS_IMPLEMENTATION */
-
+void HAL_I2S_TxHalfCpltCallback(I2S_HandleTypeDef *hi2s){ if (hi2s==&I2S_HANDLE) dma_playing_half=0; }
+void HAL_I2S_TxCpltCallback(I2S_HandleTypeDef *hi2s){ if (hi2s==&I2S_HANDLE) dma_playing_half=1; }
 /* USER CODE END PRIVATE_FUNCTIONS_IMPLEMENTATION */
 
 /**

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;blackpill_i2s_pcm5102/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.h&apos;" deleteContents="false" description="Delete resource &apos;blackpill_i2s_pcm5102/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.h&apos;" element1="/blackpill_i2s_pcm5102/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1759793954832"/>
+</session>

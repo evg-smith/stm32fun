@@ -54,11 +54,20 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_I2S2_Init(void);
 /* USER CODE BEGIN PFP */
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+extern DMA_HandleTypeDef hdma_spi2_tx;   // use hdma_spi1_tx if you use I2S1
+
+static void Fix_DMA_I2S_TX(void)
+{
+    DMA_HandleTypeDef *hdma = &hdma_spi2_tx; // or &hdma_spi1_tx
+    hdma->Init.MemDataAlignment    = DMA_MDATAALIGN_WORD;      // 32-bit from RAM
+    hdma->Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;  // 16-bit to I2S DR
+    HAL_DMA_Init(hdma);
+}
 
 /* USER CODE END 0 */
 
@@ -95,7 +104,7 @@ int main(void)
   MX_USB_DEVICE_Init();
   MX_I2S2_Init();
   /* USER CODE BEGIN 2 */
-
+  Fix_DMA_I2S_TX();
   /* USER CODE END 2 */
 
   /* Infinite loop */

@@ -1,0 +1,12 @@
+../USB_DEVICE/App/usbd_audio_if.c:143:13:usb24_to_i2s32_halfwords	2
+../USB_DEVICE/App/usbd_audio_if.c:180:15:AUDIO_Init_FS	2
+../USB_DEVICE/App/usbd_audio_if.c:195:15:AUDIO_DeInit_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:210:15:AUDIO_AudioCmd_FS	2
+../USB_DEVICE/App/usbd_audio_if.c:233:15:AUDIO_VolumeCtl_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:246:15:AUDIO_MuteCtl_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:259:15:AUDIO_PeriodicTC_FS	5
+../USB_DEVICE/App/usbd_audio_if.c:281:15:AUDIO_GetState_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:292:6:TransferComplete_CallBack_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:303:6:HalfTransfer_CallBack_FS	1
+../USB_DEVICE/App/usbd_audio_if.c:311:6:HAL_I2S_TxHalfCpltCallback	2
+../USB_DEVICE/App/usbd_audio_if.c:312:6:HAL_I2S_TxCpltCallback	2

@@ -1,0 +1,10 @@
+01:19:16 **** Incremental Build of configuration Debug for project blackpill_soundcard_hal ****
+make -j12 all 
+arm-none-eabi-size  blackpill_soundcard_hal.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33248	    300	  10476	  44024	   abf8	blackpill_soundcard_hal.elf
+Finished building: default.size.stdout
+ 
+
+01:19:16 Build Finished. 0 errors, 0 warnings. (took 253ms)
+
