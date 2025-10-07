@@ -199,21 +199,5 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /* USER CODE BEGIN 1 */
-void DMA1_Stream4_IRQHandler(void)
-{
-    uint32_t isr = DMA1->HISR;
 
-    if (isr & DMA_HISR_TCIF4)
-    {
-        // Transfer complete - full buffer transmitted
-    }
-
-    if (isr & DMA_HISR_HTIF4)
-    {
-        // Half transfer - fill other half of buffer
-    }
-
-    // Clear all Stream 4 flags
-    DMA1->HIFCR = 0x3D;
-}
 /* USER CODE END 1 */

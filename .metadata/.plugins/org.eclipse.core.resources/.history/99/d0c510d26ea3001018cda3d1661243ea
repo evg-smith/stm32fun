@@ -70,9 +70,9 @@ static void I2S2_Init(void)
 	//ждем активации модуля PLLI2S
 	while (LL_RCC_PLLI2S_IsReady() == 0);
 	//включаем тактирование I2S от модуля PLLI2S
-	LL_RCC_SetI2SClockSource(LL_RCC_I2S1_CLKSOURCE_PLLI2S);
+	LL_RCC_SetI2SClockSource(LL_RCC_I2S_CLKSOURCE_PLLI2S);
 
-	/* I2S2 конфигурация GPIO (для режима transmit master):
+	/* I2S3 конфигурация GPIO (для режима transmit master):
 	  PB13   ------> I2S2_CK (AF05)
 	  PB15   ------> I2S2_SD (AF05)
 	  PB12   ------> I2S2_WS (AF05)
@@ -117,16 +117,14 @@ static void I2S2_Init(void)
 	LL_I2S_Init(SPI2, &I2S_InitStruct);
 }
 
-void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream, uint32_t buff_addr, uint32_t buff_size)
+void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream, uint32_t *buff, uint32_t buff_size)
 {
     // Disable DMA stream
     LL_DMA_DisableStream(dma_x, stream);
     while (LL_DMA_IsEnabledStream(dma_x, stream));
 
     // Clear all DMA interrupt flags for this stream
-    static const uint8_t flag_shift[] = {0, 6, 16, 22, 0, 6, 16, 22};
-    volatile uint32_t *ifcr = (stream > 3) ? &(dma_x->HIFCR) : &(dma_x->LIFCR);
-    *ifcr = 0x3DU << flag_shift[stream];
+    LL_DMA_ClearFlag_GI(dma_x, stream);
 
     // Enable SPI TX DMA requests
     LL_SPI_EnableDMAReq_TX(spi);
@@ -142,7 +140,7 @@ void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream,
 
     // Configure addresses and data length
     LL_DMA_SetPeriphAddress(dma_x, stream, (uint32_t)&spi->DR);
-    LL_DMA_SetMemoryAddress(dma_x, stream, buff_addr);
+    LL_DMA_SetMemoryAddress(dma_x, stream, (uint32_t)buff);
     LL_DMA_SetDataLength(dma_x, stream, buff_size);
 
     // Start DMA stream
@@ -184,7 +182,6 @@ static int cos_int(int angle)
 	return sin_int(angle + 90);
 }
 /* USER CODE END 0 */
-
 
 /**
   * @brief  The application entry point.
@@ -229,11 +226,11 @@ int main(void)
 
 	for(int i = 0; i < 2*360; i+=2)
 	{
-		buff[i] =   (32767*sin_int(i>>1))>>15;
-		buff[i+1] = (32767*cos_int(i>>1))>>15;
+	  buff[i] =   (32767*sin_int(i>>1))>>15;
+	  buff[i+1] = (32767*cos_int(i>>1))>>15;
 	}
 
-	I2S_StartTransmitDMA(SPI2, DMA1, LL_DMA_STREAM_4, (uint32_t)buff, 2*360);
+	I2S_StartTransmitDMA(SPI2, DMA1, LL_DMA_STREAM_4, (uint32_t*)buff, 2*360);
   /* USER CODE END 2 */
 
   /* Infinite loop */

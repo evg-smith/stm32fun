@@ -214,6 +214,6 @@ void DMA1_Stream4_IRQHandler(void)
     }
 
     // Clear all Stream 4 flags
-    DMA1->HIFCR = 0x3D;
+    DMA1->HIFCR = 0x3F;
 }
 /* USER CODE END 1 */

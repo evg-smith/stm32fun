@@ -3,10 +3,21 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="BTN"/>
-		<item value="handl"/>
-		<item value="hanf"/>
-		<item value="make a"/>
+		<item value="DMA1_Stream4_IRQHandler"/>
+		<item value="LL_RCC_PLLI2S_ConfigDomain_I2S"/>
+		<item value="LL_RCC_I2S2_CLKSOURCE_PLLI2S"/>
+		<item value="_CLKSOURCE"/>
+		<item value="DIV"/>
+		<item value="odd"/>
+		<item value="I2S3"/>
+		<item value="HAL_I2S_TxHalfCpltCallback"/>
+		<item value="AUDIO_Init"/>
+		<item value="AUDIO_TOTAL_BUF_SIZE"/>
+		<item value="EPENA"/>
+		<item value="OTG_FS_IR"/>
+		<item value="OTG_FS_IRQ"/>
+		<item value="KEYBOARD"/>
+		<item value="hid"/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>
@@ -14,8 +25,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="arm-none-eabi-gcc: not found"/>
+		<item key="selection" value="USBD_INTERFACE_STRING_FS"/>
 		<list key="findhistory">
+			<item value="USBD_INTERFACE_STRING_FS"/>
+			<item value="USBD_CONFIGURATION_STRING_FS"/>
+			<item value="HID_FS_BINTERVAL"/>
+			<item value="USBD_SELF_POWERED"/>
+			<item value="USBD_SpeedTypeDef"/>
 			<item value="arm-none-eabi-gcc: not found"/>
 		</list>
 		<list key="replacehistory">

@@ -1,24 +1,17 @@
-02:40:46 **** Incremental Build of configuration Debug for project blackpill_i2s_pcm5102 ****
+15:01:42 **** Incremental Build of configuration Debug for project blackpill_i2s_pcm5102 ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411xE -DUSE_FULL_LL_DRIVER -DHSE_VALUE=25000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F411xE -DUSE_FULL_LL_DRIVER -DHSE_VALUE=25000000 -DHSE_STARTUP_TIMEOUT=100 -DLSE_STARTUP_TIMEOUT=5000 -DLSE_VALUE=32768 -DEXTERNAL_CLOCK_VALUE=12288000 -DHSI_VALUE=16000000 -DLSI_VALUE=32000 -DVDD_VALUE=3300 -DPREFETCH_ENABLE=1 -DINSTRUCTION_CACHE_ENABLE=1 -DDATA_CACHE_ENABLE=1 -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-../Core/Src/main.c:179:12: warning: 'cos_int' defined but not used [-Wunused-function]
-  179 | static int cos_int(int angle)
-      |            ^~~~~~~
-../Core/Src/main.c:58:13: warning: 'I2S3_Init' defined but not used [-Wunused-function]
-   58 | static void I2S3_Init(void)
-      |             ^~~~~~~~~
 arm-none-eabi-gcc -o "blackpill_i2s_pcm5102.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\blackpill_i2s_pcm5102\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blackpill_i2s_pcm5102.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: blackpill_i2s_pcm5102.elf
  
 arm-none-eabi-size  blackpill_i2s_pcm5102.elf 
 arm-none-eabi-objdump -h -S blackpill_i2s_pcm5102.elf  > "blackpill_i2s_pcm5102.list"
    text	   data	    bss	    dec	    hex	filename
-   2176	      4	   1564	   3744	    ea0	blackpill_i2s_pcm5102.elf
+   6528	      4	   1564	   8096	   1fa0	blackpill_i2s_pcm5102.elf
 Finished building: default.size.stdout
  
 Finished building: blackpill_i2s_pcm5102.list
  
 
-02:40:47 Build Finished. 0 errors, 2 warnings. (took 759ms)
+15:01:43 Build Finished. 0 errors, 0 warnings. (took 655ms)
 

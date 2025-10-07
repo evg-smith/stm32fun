@@ -117,7 +117,7 @@ static void I2S2_Init(void)
 	LL_I2S_Init(SPI2, &I2S_InitStruct);
 }
 
-void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream, uint32_t buff_addr, uint32_t buff_size)
+void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream, uint32_t *buff, uint32_t buff_size)
 {
     // Disable DMA stream
     LL_DMA_DisableStream(dma_x, stream);
@@ -142,7 +142,7 @@ void I2S_StartTransmitDMA(SPI_TypeDef *spi, DMA_TypeDef *dma_x, uint32_t stream,
 
     // Configure addresses and data length
     LL_DMA_SetPeriphAddress(dma_x, stream, (uint32_t)&spi->DR);
-    LL_DMA_SetMemoryAddress(dma_x, stream, buff_addr);
+    LL_DMA_SetMemoryAddress(dma_x, stream, (uint32_t)buff);
     LL_DMA_SetDataLength(dma_x, stream, buff_size);
 
     // Start DMA stream
@@ -233,7 +233,7 @@ int main(void)
 		buff[i+1] = (32767*cos_int(i>>1))>>15;
 	}
 
-	I2S_StartTransmitDMA(SPI2, DMA1, LL_DMA_STREAM_4, (uint32_t)buff, 2*360);
+	I2S_StartTransmitDMA(SPI2, DMA1, LL_DMA_STREAM_4, (uint32_t*)buff, 2*360);
   /* USER CODE END 2 */
 
   /* Infinite loop */
