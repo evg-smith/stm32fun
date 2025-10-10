@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>blackpill_i2s_pcm5102</name>
+	<name>blackpill_soundcard_ll</name>
 	<comment></comment>
 	<projects>
 	</projects>

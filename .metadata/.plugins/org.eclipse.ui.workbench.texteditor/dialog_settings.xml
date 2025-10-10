@@ -3,21 +3,21 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="DMA1_Stream4_IRQHandler"/>
-		<item value="LL_RCC_PLLI2S_ConfigDomain_I2S"/>
-		<item value="LL_RCC_I2S2_CLKSOURCE_PLLI2S"/>
-		<item value="_CLKSOURCE"/>
-		<item value="DIV"/>
-		<item value="odd"/>
-		<item value="I2S3"/>
-		<item value="HAL_I2S_TxHalfCpltCallback"/>
-		<item value="AUDIO_Init"/>
-		<item value="AUDIO_TOTAL_BUF_SIZE"/>
-		<item value="EPENA"/>
-		<item value="OTG_FS_IR"/>
-		<item value="OTG_FS_IRQ"/>
-		<item value="KEYBOARD"/>
-		<item value="hid"/>
+		<item value="I2S_Clk_Config24"/>
+		<item value="USBD_EP_TYPE_ISOC_ASYNC"/>
+		<item value="USBD_AUDIO_RegisterInterface"/>
+		<item value="USBD_AUDIO_BIT_DEPTH_DEFAULT"/>
+		<item value="USBD_EP_TYPE_ISOC"/>
+		<item value="iTerminal"/>
+		<item value="LOBYTE"/>
+		<item value="USB_AUDIO_CONFIG_DESC_SIZ"/>
+		<item value="USB_AUDIO_CONFIG_DESC_SIZ     "/>
+		<item value="bLength "/>
+		<item value="AUDIO_INTERFACE_DESCRIPTOR_TYPE"/>
+		<item value="USBD_AUDIO_DataOut"/>
+		<item value="bSourceID"/>
+		<item value="AUDIO_PACKET_SZE"/>
+		<item value="bNrChannels "/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>

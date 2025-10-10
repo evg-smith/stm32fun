@@ -1,0 +1,10 @@
+20:44:50 **** Incremental Build of configuration Debug for project soundcard_v1 ****
+make -j12 all 
+arm-none-eabi-size  soundcard_v1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33776	    300	  35052	  69128	  10e08	soundcard_v1.elf
+Finished building: default.size.stdout
+ 
+
+20:44:51 Build Finished. 0 errors, 0 warnings. (took 249ms)
+

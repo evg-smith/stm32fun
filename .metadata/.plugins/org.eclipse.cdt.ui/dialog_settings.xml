@@ -37,4 +37,10 @@
 			<item value="USB_OTG_GUSBCFG_FDMOD"/>
 		</list>
 	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item key="askReindex.detail" value="0"/>
+	</section>
 </section>

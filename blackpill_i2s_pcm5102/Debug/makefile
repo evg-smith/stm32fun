@@ -34,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := blackpill_i2s_pcm5102
+BUILD_ARTIFACT_NAME := blackpill_soundcard_ll
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-blackpill_i2s_pcm5102.elf \
+blackpill_soundcard_ll.elf \
 
 MAP_FILES += \
-blackpill_i2s_pcm5102.map \
+blackpill_soundcard_ll.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-blackpill_i2s_pcm5102.list \
+blackpill_soundcard_ll.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: blackpill_i2s_pcm5102.elf secondary-outputs
+main-build: blackpill_soundcard_ll.elf secondary-outputs
 
 # Tool invocations
-blackpill_i2s_pcm5102.elf blackpill_i2s_pcm5102.map: $(OBJS) $(USER_OBJS) C:\ST\DefaultWorkspase\blackpill_i2s_pcm5102\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "blackpill_i2s_pcm5102.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\blackpill_i2s_pcm5102\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blackpill_i2s_pcm5102.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+blackpill_soundcard_ll.elf blackpill_soundcard_ll.map: $(OBJS) $(USER_OBJS) C:\ST\DefaultWorkspase\blackpill_i2s_pcm5102\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "blackpill_soundcard_ll.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\blackpill_i2s_pcm5102\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="blackpill_soundcard_ll.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -70,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-blackpill_i2s_pcm5102.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "blackpill_i2s_pcm5102.list"
+blackpill_soundcard_ll.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "blackpill_soundcard_ll.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) blackpill_i2s_pcm5102.elf blackpill_i2s_pcm5102.list blackpill_i2s_pcm5102.map default.size.stdout
+	-$(RM) blackpill_soundcard_ll.elf blackpill_soundcard_ll.list blackpill_soundcard_ll.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
