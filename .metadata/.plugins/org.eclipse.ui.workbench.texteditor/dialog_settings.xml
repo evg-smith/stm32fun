@@ -3,6 +3,10 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="packet_counter = 0;"/>
+		<item value="HalfTransfer_CallBack_FS"/>
+		<item value="state"/>
+		<item value="stat"/>
 		<item value="I2S_Clk_Config24"/>
 		<item value="USBD_EP_TYPE_ISOC_ASYNC"/>
 		<item value="USBD_AUDIO_RegisterInterface"/>
@@ -14,10 +18,6 @@
 		<item value="USB_AUDIO_CONFIG_DESC_SIZ     "/>
 		<item value="bLength "/>
 		<item value="AUDIO_INTERFACE_DESCRIPTOR_TYPE"/>
-		<item value="USBD_AUDIO_DataOut"/>
-		<item value="bSourceID"/>
-		<item value="AUDIO_PACKET_SZE"/>
-		<item value="bNrChannels "/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>

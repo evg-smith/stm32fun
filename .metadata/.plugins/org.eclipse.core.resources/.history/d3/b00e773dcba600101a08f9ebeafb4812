@@ -1,0 +1,70 @@
+/*
+ * lcd_lib.c
+ *
+ *  Created on: Oct 11, 2025
+ *      Author: eevgs
+ */
+#include "lcd_lib.h"
+
+void write_bits(uint16_t bits) {
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, (bits >> 9) & 1);
+	HAL_GPIO_WritePin(GPIOA, RW_Pin, (bits >> 8) & 1);
+
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (bits >> 7) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (bits >> 6) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (bits >> 5) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (bits >> 4) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (bits >> 3) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (bits >> 2) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (bits >> 1) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (bits >> 0) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+}
+
+void LCD_Init(void) {
+	// 4 bit initialisation
+	HAL_Delay(50);  // wait for >40ms
+	write_bits (0x30);
+	HAL_Delay(5);  // wait for >4.1ms
+	write_bits (0x30);
+	HAL_Delay(1);  // wait for >100us
+	write_bits (0x30);
+	HAL_Delay(10);
+	write_bits (0x20);  // 4bit mode
+	HAL_Delay(10);
+
+  // dislay initialisation
+	write_bits (0x28); // Function set --> DL=0 (4 bit mode), N = 1 (2 line display) F = 0 (5x8 characters)
+	HAL_Delay(1);
+	write_bits (0x08); //Display on/off control --> D=0,C=0, B=0  ---> display off
+	HAL_Delay(1);
+	write_bits (0x01);  // clear display
+	HAL_Delay(1);
+	HAL_Delay(1);
+	write_bits (0x06); //Entry mode set --> I/D = 1 (increment cursor) & S = 0 (no shift)
+	HAL_Delay(1);
+	write_bits (0x0C); //Display on/off control --> D = 1, C and B = 0. (Cursor and blink, last two bits)
+}
+
+void write_char(char c) {
+	write_bits((0b10 << 8) | c);
+}
+
+void write_string(const char *str) {
+    while (*str != '\0') {
+        write_char(*str);
+        str++;
+    }
+}

@@ -1,0 +1,5 @@
+../Core/Src/lcd_lib.c:9:6:write_nibble	1
+../Core/Src/lcd_lib.c:22:6:write_bits	1
+../Core/Src/lcd_lib.c:30:6:LCD_Init	1
+../Core/Src/lcd_lib.c:50:6:write_char	1
+../Core/Src/lcd_lib.c:54:6:write_string	2

@@ -1,0 +1,87 @@
+/*
+ * lcd_lib.c
+ *
+ *  Created on: Oct 11, 2025
+ *      Author: eevgs
+ */
+#include "lcd_lib.h"
+
+void write_bits(uint16_t bits) {
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, (bits >> 9) & 1);
+	HAL_GPIO_WritePin(GPIOA, RW_Pin, (bits >> 8) & 1);
+
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (bits >> 7) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (bits >> 6) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (bits >> 5) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (bits >> 4) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (bits >> 3) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (bits >> 2) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (bits >> 1) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (bits >> 0) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+}
+
+void LCD_Init(void) {
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, 0);
+	    HAL_GPIO_WritePin(GPIOA, RW_Pin, 0);
+
+	    HAL_Delay(50);
+
+	    // Send 0x03 three times (only upper nibble, manually)
+	    HAL_GPIO_WritePin(GPIOA, D7_Pin, 0);
+	    HAL_GPIO_WritePin(GPIOA, D6_Pin, 0);
+	    HAL_GPIO_WritePin(GPIOA, D5_Pin, 1);
+	    HAL_GPIO_WritePin(GPIOA, D4_Pin, 1);
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	    HAL_Delay(1);
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	    HAL_Delay(5);
+
+	    // Repeat
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	    HAL_Delay(1);
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	    HAL_Delay(1);
+
+	    // Repeat again
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	    HAL_Delay(1);
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	    HAL_Delay(1);
+
+	    // Now send 0x02 to actually switch to 4-bit
+	    HAL_GPIO_WritePin(GPIOA, D5_Pin, 0);  // Change to 0x02
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	    HAL_Delay(1);
+	    HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	    HAL_Delay(1);
+
+	    // NOW your original code works:
+	    write_bits(0b00101000); // 4-bit mode, 2 lines, 5x8
+	    write_bits(0b00001100); // display on
+	    write_bits(0b00000001); // clear
+	    HAL_Delay(2);
+}
+
+void write_char(char c) {
+	write_bits((0b10 << 8) | c);
+}
+
+void write_string(const char *str) {
+    while (*str != '\0') {
+        write_char(*str);
+        str++;
+    }
+}

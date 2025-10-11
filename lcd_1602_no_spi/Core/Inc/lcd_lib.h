@@ -1,0 +1,16 @@
+/*
+ * lcd_lib.h
+ *
+ *  Created on: Oct 11, 2025
+ *      Author: eevgs
+ */
+
+#ifndef INC_LCD_LIB_H_
+#define INC_LCD_LIB_H_
+
+#include "main.h"
+
+void LCD_Init(void);
+void write_string(char *str);
+
+#endif /* INC_LCD_LIB_H_ */
