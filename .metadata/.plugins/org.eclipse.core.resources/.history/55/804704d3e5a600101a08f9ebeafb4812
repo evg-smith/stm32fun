@@ -1,0 +1,56 @@
+/*
+ * lcd_lib.c
+ *
+ *  Created on: Oct 11, 2025
+ *      Author: eevgs
+ */
+#include "lcd_lib.h"
+
+void write_nibble(uint8_t nibble) {
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (nibble >> 3) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (nibble >> 2) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (nibble >> 1) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (nibble >> 0) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+}
+
+void write_bits(uint16_t bits) {
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, (bits >> 9) & 1);
+	HAL_GPIO_WritePin(GPIOA, RW_Pin, (bits >> 8) & 1);
+
+	write_nibble(bits >> 4); // upper nibble
+	write_nibble(bits); // lower nibble
+}
+
+void LCD_Init(void) {
+
+	HAL_Delay(50); // wait for LCD to power up
+
+	// mode reset sequence
+	write_nibble(0x03);
+	HAL_Delay(5);
+	write_nibble(0x03);
+	write_nibble(0x03);
+	write_nibble(0x02);
+	// end of mode reset sequence
+
+	write_bits(0b00101000);  // 4-bit mode, 2 lines, 5x8 font
+	write_bits(0b00001000);  // display off
+	write_bits(0b00000001);  // clear display
+	HAL_Delay(2); // required after clear
+	write_bits(0b00000110);  // entry mode set
+	write_bits(0b00001100);  // display on
+}
+
+void write_char(char c) {
+	write_bits((0b10 << 8) | c);
+}
+
+void write_string(char *str) {
+	while (*str)write_char(*str++);
+}

@@ -11,8 +11,6 @@
 #include "main.h"
 
 void LCD_Init(void);
-void LCD_Write_char(char c);
-void LCD_Write_string(char *str);
-void LCD_Switch_line(void);
+void write_string(char *str);
 
 #endif /* INC_LCD_LIB_H_ */

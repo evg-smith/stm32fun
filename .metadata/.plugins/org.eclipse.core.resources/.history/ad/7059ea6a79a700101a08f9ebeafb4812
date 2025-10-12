@@ -88,9 +88,7 @@ int main(void)
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
   LCD_Init();
-  LCD_Write_string("Hello, Lisa");
-  LCD_Switch_line();
-  LCD_Write_string("Hello, Jopa");
+  write_string("Hello Lisa");
   /* USER CODE END 2 */
 
   /* Infinite loop */

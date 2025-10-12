@@ -1,0 +1,92 @@
+/*
+ * lcd_lib.c
+ *
+ *  Created on: Oct 11, 2025
+ *      Author: eevgs
+ */
+#include "lcd_lib.h"
+
+void write_nibble(uint8_t nibble) {
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, (nibble >> 3) & 1);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, (nibble >> 2) & 1);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, (nibble >> 1) & 1);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, (nibble >> 0) & 1);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+}
+
+void write_bits(uint16_t bits) {
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, (bits >> 9) & 1);
+	HAL_GPIO_WritePin(GPIOA, RW_Pin, (bits >> 8) & 1);
+
+	write_nibble(bits >> 4); // upper nibble
+	write_nibble(bits); // lower nibble
+}
+
+void LCD_Init(void) {
+
+	HAL_Delay(50);
+
+	write_nibble(0b0010); // set 4-bit mode
+
+	write_bits(0b00101000);  // 4-bit mode, 1 line, 5x8 font
+	write_bits(0b00001100);  // display on
+	write_bits(0b00000110);  // entry mode set
+}
+
+void write_char(char c) {
+	write_bits((0b10 << 8) | c);
+}
+
+void switch_line(void) {
+
+	// change D6_Pin mode to input
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	GPIO_InitStruct.Pin = D6_Pin;
+	GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	// set rw pin to 1 to read adress
+	HAL_GPIO_WritePin(GPIOA, RS_Pin, 0);
+	HAL_GPIO_WritePin(GPIOA, RW_Pin, 1);
+	HAL_GPIO_WritePin(GPIOA, D7_Pin, 0);
+	HAL_GPIO_WritePin(GPIOA, D6_Pin, 0);
+	HAL_GPIO_WritePin(GPIOA, D5_Pin, 0);
+	HAL_GPIO_WritePin(GPIOA, D4_Pin, 0);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+
+	// read D6_Pin to get line (2nd line starts from 40H, so this pin should be "1" for 2nd line or "0" for first)
+	uint8_t d6_state = HAL_GPIO_ReadPin(GPIOA, D6_Pin);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 1);
+	HAL_Delay(1);
+	HAL_GPIO_WritePin(GPIOA, EN_Pin, 0);
+	HAL_Delay(1);
+
+	// switch D6_Pin mode back
+	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	// set opposite line
+	if (d6_state == 0) {
+		write_bits(0b11000000);
+	} else {
+		write_bits(0b10000000);
+	}
+}
+
+void write_string(char *str) {
+	while (*str)write_char(*str++);
+}
