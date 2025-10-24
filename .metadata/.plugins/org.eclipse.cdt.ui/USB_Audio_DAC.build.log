@@ -1,0 +1,10 @@
+03:47:08 **** Incremental Build of configuration Debug for project USB_AUDIO_DAC ****
+make -j12 all 
+arm-none-eabi-size  USB_AUDIO_DAC.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32924	    300	  19684	  52908	   ceac	USB_AUDIO_DAC.elf
+Finished building: default.size.stdout
+ 
+
+03:47:10 Build Finished. 0 errors, 0 warnings. (took 1s.22ms)
+

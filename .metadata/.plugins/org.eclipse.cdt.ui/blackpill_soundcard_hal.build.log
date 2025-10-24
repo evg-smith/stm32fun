@@ -1,4 +1,4 @@
-18:03:02 **** Incremental Build of configuration Debug for project blackpill_soundcard_hal ****
+13:07:46 **** Incremental Build of configuration Debug for project blackpill_soundcard_hal ****
 make -j12 all 
 arm-none-eabi-size  blackpill_soundcard_hal.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  blackpill_soundcard_hal.elf
 Finished building: default.size.stdout
  
 
-18:03:02 Build Finished. 0 errors, 0 warnings. (took 652ms)
+13:07:46 Build Finished. 0 errors, 0 warnings. (took 493ms)
 

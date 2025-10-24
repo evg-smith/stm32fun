@@ -3,21 +3,21 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
-		<item value="packet_counter = 0;"/>
-		<item value="HalfTransfer_CallBack_FS"/>
-		<item value="state"/>
-		<item value="stat"/>
-		<item value="I2S_Clk_Config24"/>
-		<item value="USBD_EP_TYPE_ISOC_ASYNC"/>
-		<item value="USBD_AUDIO_RegisterInterface"/>
-		<item value="USBD_AUDIO_BIT_DEPTH_DEFAULT"/>
+		<item value="alt_setting"/>
+		<item value="pereo"/>
+		<item value="HAL_I2S_DMA"/>
+		<item value="USBD_AUDIO_Sync"/>
+		<item value="fifo"/>
+		<item value="AUDIO_MUTE_ON"/>
 		<item value="USBD_EP_TYPE_ISOC"/>
-		<item value="iTerminal"/>
-		<item value="LOBYTE"/>
-		<item value="USB_AUDIO_CONFIG_DESC_SIZ"/>
-		<item value="USB_AUDIO_CONFIG_DESC_SIZ     "/>
-		<item value="bLength "/>
-		<item value="AUDIO_INTERFACE_DESCRIPTOR_TYPE"/>
+		<item value="/* bNrChannels */"/>
+		<item value="bNrChannels "/>
+		<item value="USBD_AUDIO_Setup"/>
+		<item value="(void)USBD_LL_PrepareReceive(pd"/>
+		<item value="hal"/>
+		<item value="AUDIO_SAMPLE_FREQ"/>
+		<item value="USBD_AUDIO_FREQ"/>
+		<item value="HAL_I2S_TxCpltCallback"/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>

@@ -1,0 +1,13 @@
+10:23:31 **** Incremental Build of configuration Debug for project soundcard_v1 (Steppe) ****
+make -j12 all 
+arm-none-eabi-size  soundcard_v1\ (Steppe).elf 
+arm-none-eabi-objdump -h -S soundcard_v1\ (Steppe).elf  > "soundcard_v1 (Steppe).list"
+c:/st/stm32cubeide_1.19.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.make.win32_2.2.0.202409170845/tools/bin/sh: syntax error: unexpected "("
+make: *** [makefile:73: default.size.stdout] Error 2
+make: *** Waiting for unfinished jobs....
+c:/st/stm32cubeide_1.19.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.make.win32_2.2.0.202409170845/tools/bin/sh: syntax error: unexpected "("
+make: *** [makefile:78: soundcard_v1 (Steppe).list] Error 2
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+10:23:31 Build Failed. 3 errors, 0 warnings. (took 486ms)
+

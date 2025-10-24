@@ -1,0 +1,28 @@
+21:18:13 **** Incremental Build of configuration Debug for project sd_card_spi_EmbeTronicX ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function '__io_putchar':
+../Core/Src/main.c:52:3: warning: implicit declaration of function 'HAL_UART_Transmit'; did you mean 'HAL_SPI_Transmit'? [-Wimplicit-function-declaration]
+   52 |   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+      |   ^~~~~~~~~~~~~~~~~
+      |   HAL_SPI_Transmit
+../Core/Src/main.c:52:22: error: 'huart1' undeclared (first use in this function)
+   52 |   HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+      |                      ^~~~~~
+../Core/Src/main.c:52:22: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:109:3: warning: implicit declaration of function 'process_SD_card' [-Wimplicit-function-declaration]
+  109 |   process_SD_card();
+      |   ^~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:234:6: warning: conflicting types for 'process_SD_card'; have 'void(void)'
+  234 | void process_SD_card( void )
+      |      ^~~~~~~~~~~~~~~
+../Core/Src/main.c:109:3: note: previous implicit declaration of 'process_SD_card' with type 'void(void)'
+  109 |   process_SD_card();
+      |   ^~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+21:18:14 Build Failed. 2 errors, 3 warnings. (took 406ms)
+

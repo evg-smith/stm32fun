@@ -38,34 +38,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := soundcard_v1
+BUILD_ARTIFACT_NAME := soundcard_v1 (Steppe)
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-soundcard_v1.elf \
+soundcard_v1\ (Steppe).elf \
 
 MAP_FILES += \
-soundcard_v1.map \
+soundcard_v1\ (Steppe).map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-soundcard_v1.list \
+soundcard_v1\ (Steppe).list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: soundcard_v1.elf secondary-outputs
+main-build: soundcard_v1\ (Steppe).elf secondary-outputs
 
 # Tool invocations
-soundcard_v1.elf soundcard_v1.map: $(OBJS) $(USER_OBJS) C:\ST\DefaultWorkspase\soundcard_v1\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "soundcard_v1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\soundcard_v1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="soundcard_v1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+soundcard_v1\ (Steppe).elf soundcard_v1\ (Steppe).map: $(OBJS) $(USER_OBJS) C:\ST\DefaultWorkspase\soundcard_v1\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "soundcard_v1 (Steppe).elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\ST\DefaultWorkspase\soundcard_v1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="soundcard_v1 (Steppe).map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -74,14 +74,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-soundcard_v1.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "soundcard_v1.list"
+soundcard_v1\ (Steppe).list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "soundcard_v1 (Steppe).list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout soundcard_v1.elf soundcard_v1.list soundcard_v1.map
+	-$(RM) default.size.stdout soundcard_v1\ (Steppe).elf soundcard_v1\ (Steppe).list soundcard_v1\ (Steppe).map soundcard_v1\\ (Steppe).elf
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

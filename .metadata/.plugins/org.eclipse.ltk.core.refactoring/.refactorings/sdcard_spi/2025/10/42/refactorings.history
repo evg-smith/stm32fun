@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract f_mount(&amp;fs, &quot;&quot;, 1)" description="Extract Local Variable Refactoring" fileName="file:/C:/ST/DefaultWorkspase/sdcard_spi/Core/Src/main.c" flags="4" id="org.eclipse.cdt.internal.ui.refactoring.extractlocalvariable.ExtractLocalVariableRefactoring" name="fMount" selection="2765,19" stamp="1760452720040"/>
+</session>

@@ -1,0 +1,615 @@
+2025-10-18 01:43:51,852 [INFO] WebApp:191 - Connection restablished
+2025-10-18 01:55:50,339 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 341688320 Bytes (1003487232)
+2025-10-18 01:55:50,536 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 358465536 Bytes (1003487232)
+2025-10-18 01:55:50,960 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 381007872 Bytes (1003487232)
+2025-10-18 01:55:51,371 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-18 01:55:51,372 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-18 01:55:51,372 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-18 01:55:51,372 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-10-18 01:55:51,373 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-18 01:55:51,373 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-18 01:55:51,374 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-18 01:55:51,374 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-18 01:55:51,376 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-18 01:55:51,387 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-18 01:55:51,388 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 01:55:51,388 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 01:55:51,388 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 01:55:51,388 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-18 01:55:51,388 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 01:55:51,388 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 01:55:51,389 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 01:55:51,389 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 01:55:51,389 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 01:55:51,389 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 01:55:51,389 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 01:55:51,389 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 01:55:51,390 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 01:55:51,390 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 01:55:51,390 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 01:55:51,390 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 01:55:51,390 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 01:55:51,390 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 01:55:51,391 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 01:55:51,391 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 01:55:51,391 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 01:55:51,391 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 01:55:51,391 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 01:55:51,392 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 01:55:51,392 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 01:55:51,392 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 01:55:51,392 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 01:55:51,393 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 01:55:51,393 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 01:55:51,393 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-18 01:55:51,394 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-18 01:55:51,394 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-18 01:55:51,394 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-18 01:55:51,394 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-18 01:55:51,394 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 01:55:51,395 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 01:55:51,396 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-18 01:55:51,396 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-18 01:55:51,396 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-18 01:55:51,396 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-18 01:55:51,492 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:55:51,492 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:55:51,492 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:55:51,725 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp_save
+2025-10-18 01:55:52,174 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp
+2025-10-18 01:55:52,239 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp_save
+2025-10-18 01:55:52,512 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp
+2025-10-18 01:55:52,611 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-18 01:55:52,626 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-10-18 01:55:52,858 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-10-18 01:55:52,881 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-10-18 01:55:53,074 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-10-18 01:55:53,083 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-10-18 01:55:53,338 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-10-18 01:55:53,347 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-10-18 01:55:53,585 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-10-18 01:55:53,859 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 01:55:53,876 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp_save
+2025-10-18 01:55:54,040 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp
+2025-10-18 01:55:54,047 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp_save
+2025-10-18 01:55:54,217 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp
+2025-10-18 01:55:54,307 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 01:55:54,324 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c_save
+2025-10-18 01:55:54,525 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c
+2025-10-18 01:55:54,537 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h_save
+2025-10-18 01:55:54,727 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h
+2025-10-18 01:55:54,740 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h_save
+2025-10-18 01:55:54,928 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h
+2025-10-18 01:55:54,938 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c_save
+2025-10-18 01:55:55,139 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c
+2025-10-18 01:55:55,151 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h_save
+2025-10-18 01:55:55,328 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h
+2025-10-18 01:55:55,339 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c_save
+2025-10-18 01:55:55,539 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c
+2025-10-18 01:55:55,550 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h_save
+2025-10-18 01:55:55,733 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h
+2025-10-18 01:55:55,742 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c_save
+2025-10-18 01:55:55,933 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c
+2025-10-18 01:55:55,959 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c_save
+2025-10-18 01:55:56,571 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c
+2025-10-18 01:55:56,581 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h_save
+2025-10-18 01:55:56,745 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h
+2025-10-18 01:55:56,771 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-18 01:55:57,015 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c
+2025-10-18 01:55:57,023 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp_save
+2025-10-18 01:55:57,160 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp
+2025-10-18 01:55:57,177 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-18 01:55:57,308 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-18 01:55:57,387 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h_save
+2025-10-18 01:55:57,534 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h
+2025-10-18 01:55:57,544 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c_save
+2025-10-18 01:55:57,696 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c
+2025-10-18 01:55:58,309 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 313mS.
+2025-10-18 01:55:58,321 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-18 01:55:58,457 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-18 01:56:00,225 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1903mS.
+2025-10-18 01:56:00,226 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 01:56:00,235 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 01:56:02,498 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 696626560 Bytes (1003487232)
+2025-10-18 01:56:02,631 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 712934880 Bytes (1003487232)
+2025-10-18 01:56:02,990 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 734371064 Bytes (1003487232)
+2025-10-18 01:56:03,257 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-18 01:56:03,257 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-18 01:56:03,257 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-18 01:56:03,258 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-10-18 01:56:03,258 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-18 01:56:03,258 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-18 01:56:03,259 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-18 01:56:03,259 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-18 01:56:03,261 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-18 01:56:03,268 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-18 01:56:03,268 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 01:56:03,268 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 01:56:03,268 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 01:56:03,268 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-18 01:56:03,268 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 01:56:03,268 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 01:56:03,269 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 01:56:03,269 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 01:56:03,270 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 01:56:03,283 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 01:56:03,283 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 01:56:03,283 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 01:56:03,284 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 01:56:03,284 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 01:56:03,284 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 01:56:03,284 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 01:56:03,284 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 01:56:03,285 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 01:56:03,285 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-18 01:56:03,285 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-18 01:56:03,285 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-18 01:56:03,285 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-18 01:56:03,285 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-18 01:56:03,286 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-18 01:56:03,287 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-18 01:56:03,287 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-18 01:56:03,318 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:56:03,318 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:56:03,318 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 01:56:03,491 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp_save
+2025-10-18 01:56:03,595 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp
+2025-10-18 01:56:03,625 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp_save
+2025-10-18 01:56:03,728 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp
+2025-10-18 01:56:03,764 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-18 01:56:03,775 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-10-18 01:56:03,886 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-10-18 01:56:03,893 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-10-18 01:56:03,988 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-10-18 01:56:03,995 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-10-18 01:56:04,122 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-10-18 01:56:04,129 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-10-18 01:56:04,251 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-10-18 01:56:04,348 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 01:56:04,363 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp_save
+2025-10-18 01:56:04,460 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp
+2025-10-18 01:56:04,467 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp_save
+2025-10-18 01:56:04,559 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp
+2025-10-18 01:56:04,585 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 01:56:04,600 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c_save
+2025-10-18 01:56:04,709 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c
+2025-10-18 01:56:04,720 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h_save
+2025-10-18 01:56:04,820 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h
+2025-10-18 01:56:04,831 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h_save
+2025-10-18 01:56:04,938 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h
+2025-10-18 01:56:04,948 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c_save
+2025-10-18 01:56:05,064 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c
+2025-10-18 01:56:05,074 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h_save
+2025-10-18 01:56:05,177 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h
+2025-10-18 01:56:05,188 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c_save
+2025-10-18 01:56:05,298 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c
+2025-10-18 01:56:05,307 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h_save
+2025-10-18 01:56:05,408 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h
+2025-10-18 01:56:05,419 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c_save
+2025-10-18 01:56:05,524 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c
+2025-10-18 01:56:05,544 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c_save
+2025-10-18 01:56:05,658 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c
+2025-10-18 01:56:05,668 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h_save
+2025-10-18 01:56:05,770 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h
+2025-10-18 01:56:05,797 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-18 01:56:05,949 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c
+2025-10-18 01:56:05,957 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp_save
+2025-10-18 01:56:06,053 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp
+2025-10-18 01:56:06,068 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-18 01:56:06,177 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-18 01:56:06,218 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h_save
+2025-10-18 01:56:06,323 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h
+2025-10-18 01:56:06,332 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c_save
+2025-10-18 01:56:06,476 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c
+2025-10-18 01:56:07,013 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 272mS.
+2025-10-18 01:56:07,020 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-18 01:56:07,143 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-18 01:56:08,346 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1325mS.
+2025-10-18 01:56:08,347 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 01:56:08,356 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-10-18 02:31:27,598 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,598 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,599 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,601 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,601 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,601 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,717 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,717 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,717 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,780 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,781 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:31:27,781 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:32:00,585 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 784928920 Bytes (1003487232)
+2025-10-18 02:32:00,815 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 822026496 Bytes (1003487232)
+2025-10-18 02:32:01,201 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 846143744 Bytes (1003487232)
+2025-10-18 02:32:01,702 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-18 02:32:01,703 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-18 02:32:01,703 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-18 02:32:01,703 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-10-18 02:32:01,703 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-18 02:32:01,703 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-18 02:32:01,706 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-18 02:32:01,707 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-18 02:32:01,708 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-18 02:32:01,716 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-18 02:32:01,716 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:32:01,716 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:32:01,716 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:32:01,717 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-18 02:32:01,717 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:32:01,717 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:32:01,717 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:32:01,717 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:32:01,718 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:32:01,718 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:32:01,718 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:32:01,718 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:32:01,719 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:32:01,719 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:32:01,719 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:32:01,719 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:32:01,719 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:32:01,720 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:32:01,720 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:32:01,720 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:32:01,720 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:32:01,720 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:32:01,721 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:32:01,721 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:32:01,721 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:32:01,721 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:32:01,721 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:32:01,722 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:32:01,722 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:32:01,722 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-18 02:32:01,722 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-18 02:32:01,722 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-18 02:32:01,722 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:32:01,723 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:32:01,724 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:32:01,724 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:32:01,724 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:32:01,724 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:32:01,724 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-18 02:32:01,725 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-18 02:32:01,746 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:32:01,746 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:32:01,746 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:32:01,917 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp_save
+2025-10-18 02:32:02,362 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp
+2025-10-18 02:32:02,408 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp_save
+2025-10-18 02:32:02,721 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp
+2025-10-18 02:32:02,783 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-18 02:32:02,795 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-10-18 02:32:03,025 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-10-18 02:32:03,031 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-10-18 02:32:03,214 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-10-18 02:32:03,221 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-10-18 02:32:03,450 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-10-18 02:32:03,457 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-10-18 02:32:03,692 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-10-18 02:32:03,816 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:32:03,832 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp_save
+2025-10-18 02:32:04,008 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp
+2025-10-18 02:32:04,015 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp_save
+2025-10-18 02:32:04,178 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp
+2025-10-18 02:32:04,207 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:32:04,221 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c_save
+2025-10-18 02:32:04,379 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c
+2025-10-18 02:32:04,388 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h_save
+2025-10-18 02:32:04,517 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h
+2025-10-18 02:32:04,527 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h_save
+2025-10-18 02:32:04,638 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h
+2025-10-18 02:32:04,647 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c_save
+2025-10-18 02:32:04,766 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c
+2025-10-18 02:32:04,776 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h_save
+2025-10-18 02:32:04,881 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h
+2025-10-18 02:32:04,889 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c_save
+2025-10-18 02:32:05,004 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c
+2025-10-18 02:32:05,013 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h_save
+2025-10-18 02:32:05,115 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h
+2025-10-18 02:32:05,125 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c_save
+2025-10-18 02:32:05,249 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c
+2025-10-18 02:32:05,268 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c_save
+2025-10-18 02:32:05,507 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c
+2025-10-18 02:32:05,517 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h_save
+2025-10-18 02:32:05,617 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h
+2025-10-18 02:32:05,642 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-18 02:32:05,803 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c
+2025-10-18 02:32:05,810 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp_save
+2025-10-18 02:32:05,907 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp
+2025-10-18 02:32:05,923 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-18 02:32:06,035 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-18 02:32:06,082 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h_save
+2025-10-18 02:32:06,209 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h
+2025-10-18 02:32:06,218 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c_save
+2025-10-18 02:32:06,376 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c
+2025-10-18 02:32:06,916 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 269mS.
+2025-10-18 02:32:06,925 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-18 02:32:07,046 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-18 02:32:08,192 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1268mS.
+2025-10-18 02:32:08,193 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 02:32:08,204 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-10-18 02:35:28,638 [INFO] Gpio:278 - dependency for GPIO [I2S2, RCC, USB_OTG_FS]
+2025-10-18 02:35:45,778 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 403688488 Bytes (1003487232)
+2025-10-18 02:35:45,978 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 441790600 Bytes (1003487232)
+2025-10-18 02:35:46,330 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 469579912 Bytes (1003487232)
+2025-10-18 02:35:46,506 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-18 02:35:46,507 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-18 02:35:46,508 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-18 02:35:46,509 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-18 02:35:46,513 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-18 02:35:46,513 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-18 02:35:46,514 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:35:46,514 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:35:46,514 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:35:46,515 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:35:46,516 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:35:46,516 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-18 02:35:46,516 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-18 02:35:46,531 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:35:46,531 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:35:46,531 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:35:46,650 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp_save
+2025-10-18 02:35:46,750 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp
+2025-10-18 02:35:46,780 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp_save
+2025-10-18 02:35:46,885 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp
+2025-10-18 02:35:46,915 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-18 02:35:46,926 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-10-18 02:35:47,025 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-10-18 02:35:47,033 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-10-18 02:35:47,125 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-10-18 02:35:47,132 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-10-18 02:35:47,249 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-10-18 02:35:47,255 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-10-18 02:35:47,369 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-10-18 02:35:47,465 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:35:47,483 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp_save
+2025-10-18 02:35:47,579 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp
+2025-10-18 02:35:47,585 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp_save
+2025-10-18 02:35:47,685 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp
+2025-10-18 02:35:47,708 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:35:47,720 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c_save
+2025-10-18 02:35:47,832 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c
+2025-10-18 02:35:47,840 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h_save
+2025-10-18 02:35:47,935 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h
+2025-10-18 02:35:47,944 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h_save
+2025-10-18 02:35:48,044 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h
+2025-10-18 02:35:48,054 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c_save
+2025-10-18 02:35:48,165 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c
+2025-10-18 02:35:48,173 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h_save
+2025-10-18 02:35:48,266 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h
+2025-10-18 02:35:48,275 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c_save
+2025-10-18 02:35:48,380 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c
+2025-10-18 02:35:48,390 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h_save
+2025-10-18 02:35:48,486 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h
+2025-10-18 02:35:48,495 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c_save
+2025-10-18 02:35:48,614 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c
+2025-10-18 02:35:48,633 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c_save
+2025-10-18 02:35:48,740 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c
+2025-10-18 02:35:48,748 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h_save
+2025-10-18 02:35:48,843 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h
+2025-10-18 02:35:48,863 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-18 02:35:49,019 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c
+2025-10-18 02:35:49,025 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp_save
+2025-10-18 02:35:49,113 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp
+2025-10-18 02:35:49,128 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-18 02:35:49,228 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-18 02:35:49,266 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h_save
+2025-10-18 02:35:49,369 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h
+2025-10-18 02:35:49,378 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c_save
+2025-10-18 02:35:49,520 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c
+2025-10-18 02:35:50,033 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 269mS.
+2025-10-18 02:35:50,041 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-18 02:35:50,156 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-18 02:35:51,132 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1092mS.
+2025-10-18 02:35:51,133 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 02:35:51,140 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-10-18 02:49:15,024 [INFO] I2sManager:658 - 3.84E7
+2025-10-18 02:49:15,025 [INFO] I2sManager:195 - I2S Clock Value : 3.84E7
+2025-10-18 02:49:15,025 [INFO] I2sManager:553 - AudioClock : 48000Divider : 12Odd : 1
+2025-10-18 02:53:29,284 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:53:45,191 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:53:47,865 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:53:59,178 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:02,333 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:04,314 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:13,181 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:15,842 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:17,617 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:18,825 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:38,073 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:38,169 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:38,279 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:43,980 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:57,728 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-18 02:54:59,316 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 743513512 Bytes (1003487232)
+2025-10-18 02:54:59,479 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 760290728 Bytes (1003487232)
+2025-10-18 02:54:59,830 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 783359400 Bytes (1003487232)
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_OTG_FS
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_DEVICE
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2S
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-18 02:55:00,426 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-18 02:55:00,426 [INFO] CodeGenerator:892 - code generatio: config db path: C:\ST\STM32CubeIDE_1.19.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.15.0.202507011659\\db\
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Stream4
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:327 - 	 sub Args: 
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Channelvalue: DMA_CHANNEL_0
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_HALFWORD
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_HALFWORD
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Modevalue: DMA_CIRCULAR
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : FIFOModevalue: DMA_FIFOMODE_ENABLE
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : FIFOThresholdvalue: DMA_FIFO_THRESHOLD_FULL
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : MemBurstvalue: DMA_MBURST_SINGLE
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : PeriphBurstvalue: DMA_PBURST_SINGLE
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : XferM1CpltCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-18 02:55:00,426 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-18 02:55:00,442 [WARN] IP:2250 - DEVICE_SERIAL0_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:55:00,442 [WARN] IP:2250 - DEVICE_SERIAL1_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:55:00,442 [WARN] IP:2250 - DEVICE_SERIAL2_AUDIO_FS not found: check if there is a RefParameter without a condition.
+2025-10-18 02:55:00,552 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp_save
+2025-10-18 02:55:00,963 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\license.tmp
+2025-10-18 02:55:01,011 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp_save
+2025-10-18 02:55:01,299 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\gpio.tmp
+2025-10-18 02:55:01,377 [WARN] IPConfigManager:3238 - Warning: the RefConfig PWREx_EnableUSBVoltageDetector is not available in your config.xml file
+2025-10-18 02:55:01,388 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp_save
+2025-10-18 02:55:01,616 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_vars.tmp
+2025-10-18 02:55:01,623 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp_save
+2025-10-18 02:55:01,797 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_inc.tmp
+2025-10-18 02:55:01,805 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp_save
+2025-10-18 02:55:02,031 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_HalInit.tmp
+2025-10-18 02:55:02,039 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp_save
+2025-10-18 02:55:02,243 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\usb_otg_fs_Msp.tmp
+2025-10-18 02:55:02,366 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:55:02,381 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp_save
+2025-10-18 02:55:02,505 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma.tmp
+2025-10-18 02:55:02,511 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp_save
+2025-10-18 02:55:02,623 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\dma_GV.tmp
+2025-10-18 02:55:02,653 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-18 02:55:02,666 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c_save
+2025-10-18 02:55:02,802 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.c
+2025-10-18 02:55:02,814 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h_save
+2025-10-18 02:55:02,942 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usb_device.h
+2025-10-18 02:55:02,951 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h_save
+2025-10-18 02:55:03,067 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.h
+2025-10-18 02:55:03,076 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c_save
+2025-10-18 02:55:03,200 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\Target\usbd_conf.c
+2025-10-18 02:55:03,210 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h_save
+2025-10-18 02:55:03,319 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.h
+2025-10-18 02:55:03,328 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c_save
+2025-10-18 02:55:03,446 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_desc.c
+2025-10-18 02:55:03,456 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h_save
+2025-10-18 02:55:03,561 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.h
+2025-10-18 02:55:03,570 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c_save
+2025-10-18 02:55:03,693 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\USB_DEVICE\App\usbd_audio_if.c
+2025-10-18 02:55:03,712 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c_save
+2025-10-18 02:55:03,947 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_it.c
+2025-10-18 02:55:03,957 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h_save
+2025-10-18 02:55:04,061 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_it.h
+2025-10-18 02:55:04,084 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c_save
+2025-10-18 02:55:04,247 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\stm32f4xx_hal_msp.c
+2025-10-18 02:55:04,255 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp_save
+2025-10-18 02:55:04,349 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\MXTmpFiles\system.tmp
+2025-10-18 02:55:04,367 [INFO] CodeEngine:321 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h_save
+2025-10-18 02:55:04,483 [INFO] CodeEngine:345 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\stm32f4xx_hal_conf.h
+2025-10-18 02:55:04,540 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h_save
+2025-10-18 02:55:04,673 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Inc\main.h
+2025-10-18 02:55:04,682 [INFO] CodeEngine:265 - oldGeneratedFile, C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c_save
+2025-10-18 02:55:04,829 [INFO] CodeEngine:289 - Generated code: C:\ST\DefaultWorkspase\USB_AUDIO_DAC\Core\Src\main.c
+2025-10-18 02:55:05,571 [INFO] ProjectBuilder:3606 - Time for Copy HAL[1] : 279mS.
+2025-10-18 02:55:05,580 [INFO] ProjectBuilder:5216 - Project Generator version: 4.7.0-B52
+2025-10-18 02:55:05,718 [INFO] ConfigFileManager:1595 - The Die is : DIE431
+2025-10-18 02:55:07,096 [INFO] ProjectBuilder:5496 - Time for Generating toolchain IDE Files: 1516mS.
+2025-10-18 02:55:07,097 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 1mS.
+2025-10-18 02:55:07,107 [INFO] ProjectBuilder:3463 - Time for Copy CMSIS : 0mS.
+2025-10-18 03:04:31,209 [INFO] I2sManager:658 - 3.84E7
+2025-10-18 03:04:31,209 [INFO] I2sManager:195 - I2S Clock Value : 3.84E7
+2025-10-18 03:04:31,209 [INFO] I2sManager:553 - AudioClock : 48000Divider : 12Odd : 1
