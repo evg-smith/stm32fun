@@ -3,21 +3,21 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="dma"/>
+		<item value="bytes_written"/>
+		<item value="fs"/>
+		<item value="ReceiveToIdle"/>
+		<item value="ToIdle"/>
+		<item value="creat"/>
+		<item value="huart2"/>
+		<item value="huart"/>
+		<item value="f_open"/>
 		<item value="alt_setting"/>
 		<item value="pereo"/>
 		<item value="HAL_I2S_DMA"/>
 		<item value="USBD_AUDIO_Sync"/>
 		<item value="fifo"/>
 		<item value="AUDIO_MUTE_ON"/>
-		<item value="USBD_EP_TYPE_ISOC"/>
-		<item value="/* bNrChannels */"/>
-		<item value="bNrChannels "/>
-		<item value="USBD_AUDIO_Setup"/>
-		<item value="(void)USBD_LL_PrepareReceive(pd"/>
-		<item value="hal"/>
-		<item value="AUDIO_SAMPLE_FREQ"/>
-		<item value="USBD_AUDIO_FREQ"/>
-		<item value="HAL_I2S_TxCpltCallback"/>
 	</list>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item key="wrap" value="true"/>

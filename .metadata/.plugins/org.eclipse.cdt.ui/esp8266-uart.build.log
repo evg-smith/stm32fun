@@ -1,4 +1,4 @@
-08:57:31 **** Incremental Build of configuration Debug for project esp8266-uart ****
+01:33:08 **** Incremental Build of configuration Debug for project esp8266-uart ****
 make -j12 all 
 arm-none-eabi-size  esp8266-uart.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size  esp8266-uart.elf
 Finished building: default.size.stdout
  
 
-08:57:32 Build Finished. 0 errors, 0 warnings. (took 407ms)
+01:33:08 Build Finished. 0 errors, 0 warnings. (took 474ms)
 

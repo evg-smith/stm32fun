@@ -1,3 +1,4 @@
-init_count
-periodic_count
-usb_packet_count
+rx_data
+indx
+HAL_GetTick()
+last_interrupt_time
