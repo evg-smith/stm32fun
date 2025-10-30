@@ -80,7 +80,8 @@ static uint8_t SD_ReadyWait(void)
     /* if SD goes ready, receives 0xFF */
     do {
         res = SPI_RxByte();
-    } while ((res != 0xFF) && Timer2);
+        if (Timer2 == 0) break; // Timeout check
+    } while (res != 0xFF);
 
     return res;
 }
@@ -170,7 +171,7 @@ static bool SD_RxDataBlock(BYTE *buff, UINT len)
 #if _USE_WRITE == 1
 static bool SD_TxDataBlock(const uint8_t *buff, BYTE token)
 {
-    uint8_t resp = 0xFF; // 초기화
+    uint8_t resp = 0xFF;
     uint8_t i = 0;
 
     /* wait SD ready */
@@ -192,22 +193,20 @@ static bool SD_TxDataBlock(const uint8_t *buff, BYTE token)
         while (i <= 64)
         {
             resp = SPI_RxByte();
-
-            /* transmit 0x05 accepted */
-            if ((resp & 0x1F) == 0x05) break;
+            if ((resp & 0x1F) == 0x05) break; /* accepted */
             i++;
         }
 
-        // FIX 3: 타임아웃 없는 무한 루프 수정
-        // 카드가 계속 busy(0x00) 상태일 경우 시스템이 멈추는 것을 방지하기 위해 타임아웃을 추가합니다.
-        Timer1 = 200; // 200ms 타임아웃
-        while ((SPI_RxByte() == 0) && Timer1);
-    }
-    
-    // resp가 초기화되지 않은 상태로 사용될 수 있어 수정
-    if ((resp & 0x1F) == 0x05) return TRUE;
+        if ((resp & 0x1F) != 0x05) return FALSE;
 
-    return FALSE;
+        /* Wait for card to complete programming - CRITICAL FIX */
+        Timer1 = 500; // 500ms timeout (SD cards can take up to 250ms)
+        while (SPI_RxByte() == 0x00) {
+            if (Timer1 == 0) return FALSE; // Timeout
+        }
+    }
+
+    return TRUE;
 }
 #endif /* _USE_WRITE */
 
