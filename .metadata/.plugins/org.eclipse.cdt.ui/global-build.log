@@ -1191,3 +1191,10 @@ arm-none-eabi-size  uart-rx.elf
   31400	     36	  11916	  43352	   a958	uart-rx.elf
 Finished building: default.size.stdout
  
+03:53:14 **** Build of configuration Debug for project sdcard_spi ****
+make -j12 all 
+arm-none-eabi-size  sdcard_spi.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26580	     36	  10548	  37164	   912c	sdcard_spi.elf
+Finished building: default.size.stdout
+ 

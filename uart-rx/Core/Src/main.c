@@ -71,7 +71,7 @@ static FIL fil;
 static FRESULT fres;
 static UINT bytes_written;
 
-#define BUFFER_SIZE 1024
+#define BUFFER_SIZE 512
 
 uint8_t rx_data[BUFFER_SIZE];
 volatile uint32_t indx = 0;
@@ -151,7 +151,7 @@ int main(void)
         while (1);
     }
 
-    if(f_open(&fil, "test_data_500kb_500.bin", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+    if(f_open(&fil, "abc.bin", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
     {
         while (1);
     }
