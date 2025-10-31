@@ -71,40 +71,28 @@ static FIL fil;
 static FRESULT fres;
 static UINT bytes_written;
 
-#define BUFFER_SIZE 512
+#define BUFFER_SIZE 4096
 
 uint8_t rx_data[BUFFER_SIZE];
-volatile uint32_t indx = 0;
+volatile uint8_t first_part = 1;
+volatile uint8_t data_ready_flag = 0;
+volatile uint8_t data_start_flag = 0;
+volatile uint16_t size = 0;
 volatile uint32_t last_interrupt_time = 0;
-volatile uint8_t start_flag = 0;
-
-uint8_t rx_data_copy[BUFFER_SIZE];
-volatile uint32_t upper_buffer_pos = 0;
-volatile uint8_t chunk_ready = 0;
-
-volatile uint16_t counter = 0;
-volatile uint16_t chunk_counter = 0;
-volatile uint16_t chunk_write_count = 0;
-
-volatile uint16_t f_write_isr_marker_first = 0;
-volatile uint16_t f_write_isr_marker_last = 0;
-volatile uint8_t f_write_isr_marker_counter = 0;
 
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
 {
-	HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE);
-	last_interrupt_time = HAL_GetTick();
-	start_flag = 1;
-
-  indx += Size;
-  counter++;
-	if (indx - upper_buffer_pos >= BUFFER_SIZE)
-	{
-		memcpy(rx_data_copy, rx_data, BUFFER_SIZE);
-	  chunk_counter++;
-		chunk_ready = 1;
-		upper_buffer_pos = indx;
-	}
+  if (first_part) {
+    HAL_UARTEx_ReceiveToIdle_IT(&huart2, &rx_data[BUFFER_SIZE / 2], BUFFER_SIZE / 2);
+    first_part = 0;
+  } else {
+    HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE / 2);
+    first_part = 1;
+  }
+  size = Size;
+  data_ready_flag = 1;
+  last_interrupt_time = HAL_GetTick();
+  data_start_flag = 1;
 }
 /* USER CODE END 0 */
 
@@ -151,12 +139,16 @@ int main(void)
         while (1);
     }
 
-    if(f_open(&fil, "abc.bin", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+    if(f_open(&fil, "abc2.bin", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
     {
         while (1);
     }
 
-  HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE);
+  HAL_UART_Transmit(&huart1, (uint8_t *)"RDY", 3, 100);
+
+  HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE / 2);
+
+  last_interrupt_time = HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -167,25 +159,20 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-    if (chunk_ready)
-    {
-        f_write_isr_marker_first = counter;
-        f_write(&fil, rx_data_copy, BUFFER_SIZE, &bytes_written);
-        f_write_isr_marker_last = counter;
-        if (f_write_isr_marker_first != f_write_isr_marker_last) {
-          f_write_isr_marker_counter++;
-        }
-        chunk_ready = 0;
-        chunk_write_count++;
+    if (data_ready_flag && first_part) {
+      f_write(&fil, &rx_data[BUFFER_SIZE / 2], size, &bytes_written);
+      data_ready_flag = 0;
+    } else if (data_ready_flag && !first_part) {
+      f_write(&fil, rx_data, size, &bytes_written);
+      data_ready_flag = 0;
     }
 
-    if (start_flag && ((HAL_GetTick() - last_interrupt_time) > 100))
+    if (data_start_flag && HAL_GetTick() - last_interrupt_time > 1000)
     {
-        f_write(&fil, rx_data, indx - upper_buffer_pos, &bytes_written);
-        f_close(&fil);
-        f_mount(NULL, "", 1);
-        start_flag = 0;
-        HAL_UART_Transmit(&huart1, (uint8_t *)"OK", 2, 100);
+      f_close(&fil);
+      f_mount(NULL, "", 1);
+      HAL_UART_Transmit(&huart1, (uint8_t *)"OK", 2, 100);
+      data_start_flag = 0;
     }
   }
   /* USER CODE END 3 */
