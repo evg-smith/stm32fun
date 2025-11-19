@@ -248,9 +248,9 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
               }
               else
               {
-                if (packets_received == 0)
+                if (packets_received == 0 && !file_opened)
                 {
-                  /* File name packet */
+                  /* File name packet - only if file not already open */
                   if (aPacketData[PACKET_DATA_INDEX] != 0)
                   {
                     /* File name extraction */
