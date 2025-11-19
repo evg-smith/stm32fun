@@ -82,7 +82,7 @@ typedef enum
 
 #define NAK_TIMEOUT             ((uint32_t)0x100000)
 #define DOWNLOAD_TIMEOUT        ((uint32_t)1000) /* One second retry delay */
-#define MAX_ERRORS              ((uint32_t)500)
+#define MAX_ERRORS              ((uint32_t)5)
 
 /* Exported functions ------------------------------------------------------- */
 COM_StatusTypeDef Ymodem_Receive(uint32_t *p_size);

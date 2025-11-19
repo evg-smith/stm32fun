@@ -2,9 +2,9 @@
   ******************************************************************************
   * @file    IAP_Main/Src/ymodem.c 
   * @author  MCD Application Team
-  * @version 1.0.0
+  * @version 1.0.0 - MAXIMUM SPEED VERSION
   * @date    8-April-2015
-  * @brief   This file provides all the software functions related to the ymodem 
+  * @brief   This file provides all the software functions related to the ymodem
   *          protocol.
   ******************************************************************************
   *
@@ -14,8 +14,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software 
-  * distributed under the License is distributed on an "AS IS" BASIS, 
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -25,8 +25,8 @@
 
 /** @addtogroup STM32L4xx_IAP
   * @{
-  */ 
-  
+  */
+
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"
 #include "ymodem.h"
@@ -34,7 +34,11 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define SYNC_INTERVAL 10  /* Sync to SD card every 10 packets */
+/*
+ * MAXIMUM SPEED MODE: Only sync at end of file
+ * WARNING: If transfer is interrupted, entire file may be lost
+ * USE ONLY: For fast, reliable connections where interruption is unlikely
+ */
 
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
@@ -204,7 +208,6 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
   uint8_t file_size[FILE_SIZE_LENGTH], packets_received;
   COM_StatusTypeDef result = COM_OK;
   uint8_t file_opened = 0;  // Track if file is currently open
-  uint32_t packets_since_sync = 0;  // Counter for periodic sync
 
   while ((session_done == 0) && (result == COM_OK))
   {
@@ -232,7 +235,7 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
               /* End of transmission */
               if (file_opened)
               {
-                // Final sync and close
+                // ONLY sync at end - maximum speed!
                 f_sync(&fil);
                 f_close(&fil);
                 file_opened = 0;
@@ -295,7 +298,6 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
                     }
 
                     file_opened = 1;
-                    packets_since_sync = 0;
 
                     Serial_PutByte(ACK);
                     Serial_PutByte(CRC16);
@@ -322,32 +324,12 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
 
                   ramsource = (uint32_t) & aPacketData[PACKET_DATA_INDEX];
 
-                  /* Write received data to SD card */
+                  /* Write received data to SD card - NO sync during transfer for max speed */
                   if (f_write(&fil, (void*) ramsource, packet_length, &bytes_written) == FR_OK)
                   {
                     /* Verify all bytes were written */
                     if (bytes_written == packet_length)
                     {
-                      packets_since_sync++;
-
-                      /* Sync to SD card every SYNC_INTERVAL packets to ensure data is written
-                       * This prevents buffer overflow and ensures data integrity
-                       * for large files while maintaining reasonable performance */
-                      if (packets_since_sync >= SYNC_INTERVAL)
-                      {
-                        if (f_sync(&fil) != FR_OK)
-                        {
-                          /* Sync failed - abort */
-                          f_close(&fil);
-                          file_opened = 0;
-                          Serial_PutByte(CA);
-                          Serial_PutByte(CA);
-                          result = COM_DATA;
-                          break;
-                        }
-                        packets_since_sync = 0;
-                      }
-
                       Serial_PutByte(ACK);
                     }
                     else
