@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;esp8266-uart/Core/Src/main.c&apos;" deleteContents="false" description="Delete resource &apos;esp8266-uart/Core/Src/main.c&apos;" element1="/esp8266-uart/Core/Src/main.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1761345138784"/>&#x0A;<refactoring comment="Rename resource &apos;esp8266-uart&apos; to &apos;uart-tx&apos;" description="Rename resource &apos;esp8266-uart&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/esp8266-uart" name="uart-tx" stamp="1761345328684" updateReferences="true"/>
+</session>

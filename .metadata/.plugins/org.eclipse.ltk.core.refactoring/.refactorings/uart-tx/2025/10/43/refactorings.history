@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;esp8266-uart/Core/Src/main_transmit.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;main_transmit.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/main_transmit.c" name="main.c" stamp="1761345146639" updateReferences="true"/>
+</session>

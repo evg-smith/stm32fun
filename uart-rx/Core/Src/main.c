@@ -22,7 +22,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 #include <string.h>
+#include "ymodem.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,35 +67,6 @@ static void MX_USART2_UART_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-// FatFS variables
-static FATFS fs;
-static FIL fil;
-static FRESULT fres;
-static UINT bytes_written;
-
-#define BUFFER_SIZE 4096
-
-uint8_t rx_data[BUFFER_SIZE];
-volatile uint8_t first_part = 1;
-volatile uint8_t data_ready_flag = 0;
-volatile uint8_t data_start_flag = 0;
-volatile uint16_t size = 0;
-volatile uint32_t last_interrupt_time = 0;
-
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t Size)
-{
-  if (first_part) {
-    HAL_UARTEx_ReceiveToIdle_IT(&huart2, &rx_data[BUFFER_SIZE / 2], BUFFER_SIZE / 2);
-    first_part = 0;
-  } else {
-    HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE / 2);
-    first_part = 1;
-  }
-  size = Size;
-  data_ready_flag = 1;
-  last_interrupt_time = HAL_GetTick();
-  data_start_flag = 1;
-}
 /* USER CODE END 0 */
 
 /**
@@ -133,22 +106,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   HAL_Delay(500);
-
-    if(f_mount(&fs, "", 0) != FR_OK)
-    {
-        while (1);
-    }
-
-    if(f_open(&fil, "abc2.bin", FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
-    {
-        while (1);
-    }
-
-  HAL_UART_Transmit(&huart1, (uint8_t *)"RDY", 3, 100);
-
-  HAL_UARTEx_ReceiveToIdle_IT(&huart2, rx_data, BUFFER_SIZE / 2);
-
-  last_interrupt_time = HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,22 +115,14 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    uint32_t received_size = 0;
+    Ymodem_Receive(&received_size);
+    HAL_Delay(500);
 
-    if (data_ready_flag && first_part) {
-      f_write(&fil, &rx_data[BUFFER_SIZE / 2], size, &bytes_written);
-      data_ready_flag = 0;
-    } else if (data_ready_flag && !first_part) {
-      f_write(&fil, rx_data, size, &bytes_written);
-      data_ready_flag = 0;
-    }
 
-    if (data_start_flag && HAL_GetTick() - last_interrupt_time > 1000)
-    {
-      f_close(&fil);
-      f_mount(NULL, "", 1);
-      HAL_UART_Transmit(&huart1, (uint8_t *)"OK", 2, 100);
-      data_start_flag = 0;
-    }
+    char buffer[16];
+    sprintf(buffer, "%lu", received_size);
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 100);
   }
   /* USER CODE END 3 */
 }

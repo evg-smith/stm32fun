@@ -47,12 +47,12 @@ uint8_t aFileName[FILE_NAME_LENGTH];
 /* @note ATTENTION - please keep this variable 32bit alligned */
 uint8_t aPacketData[PACKET_1K_SIZE + PACKET_DATA_INDEX + PACKET_TRAILER_SIZE];
 
-extern CRC_HandleTypeDef hcrc;
 extern UART_HandleTypeDef huart1;
 
 /* Private function prototypes -----------------------------------------------*/
 static HAL_StatusTypeDef ReceivePacket(uint8_t *p_data, uint32_t *p_length, uint32_t timeout);
-
+uint16_t UpdateCRC16(uint16_t crc_in, uint8_t byte);
+uint16_t Cal_CRC16(const uint8_t* p_data, uint32_t size);
 /* Private functions ---------------------------------------------------------*/
 
 /**
@@ -125,7 +125,7 @@ static HAL_StatusTypeDef ReceivePacket(uint8_t *p_data, uint32_t *p_length, uint
           /* Check packet CRC */
           crc = p_data[ packet_size + PACKET_DATA_INDEX ] << 8;
           crc += p_data[ packet_size + PACKET_DATA_INDEX + 1 ];
-          if (HAL_CRC_Calculate(&hcrc, (uint32_t*)&p_data[PACKET_DATA_INDEX], packet_size) != crc )
+          if (Cal_CRC16(&p_data[PACKET_DATA_INDEX], packet_size) != crc )
           {
             packet_size = 0;
             status = HAL_ERROR;
@@ -140,6 +140,52 @@ static HAL_StatusTypeDef ReceivePacket(uint8_t *p_data, uint32_t *p_length, uint
   }
   *p_length = packet_size;
   return status;
+}
+
+/**
+  * @brief  Update CRC16 for input byte
+  * @param  crc_in input value
+  * @param  input byte
+  * @retval None
+  */
+uint16_t UpdateCRC16(uint16_t crc_in, uint8_t byte)
+{
+  uint32_t crc = crc_in;
+  uint32_t in = byte | 0x100;
+
+  do
+  {
+    crc <<= 1;
+    in <<= 1;
+    if(in & 0x100)
+      ++crc;
+    if(crc & 0x10000)
+      crc ^= 0x1021;
+  }
+
+  while(!(in & 0x10000));
+
+  return crc & 0xffffu;
+}
+
+/**
+  * @brief  Cal CRC16 for YModem Packet
+  * @param  data
+  * @param  length
+  * @retval None
+  */
+uint16_t Cal_CRC16(const uint8_t* p_data, uint32_t size)
+{
+  uint32_t crc = 0;
+  const uint8_t* dataEnd = p_data+size;
+
+  while(p_data < dataEnd)
+    crc = UpdateCRC16(crc, *p_data++);
+
+  crc = UpdateCRC16(crc, 0);
+  crc = UpdateCRC16(crc, 0);
+
+  return crc&0xffffu;
 }
 
 /* Public functions ---------------------------------------------------------*/
@@ -170,11 +216,15 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
           {
             case 2:
               /* Abort by sender */
+              f_close(&fil);
+              f_mount(NULL, "", 1);
               Serial_PutByte(ACK);
               result = COM_ABORT;
               break;
             case 0:
               /* End of transmission */
+              f_close(&fil);
+              f_mount(NULL, "", 1);
               Serial_PutByte(ACK);
               file_done = 1;
               break;
@@ -275,16 +325,16 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
           {
             errors ++;
           }
-          if (errors > MAX_ERRORS)
-          {
-            /* Abort communication */
-            Serial_PutByte(CA);
-            Serial_PutByte(CA);
-          }
-          else
-          {
+          // if (errors > MAX_ERRORS)
+          // {
+          //   /* Abort communication */
+          //   Serial_PutByte(CA);
+          //   Serial_PutByte(CA);
+          // }
+          // else
+          // {
             Serial_PutByte(CRC16); /* Ask for a packet */
-          }
+          // }
           break;
       }
     }
