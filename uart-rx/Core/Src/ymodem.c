@@ -34,6 +34,8 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
+#define SYNC_INTERVAL 10  /* Sync to SD card every 10 packets */
+
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
 
@@ -201,6 +203,8 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
   uint8_t *file_ptr;
   uint8_t file_size[FILE_SIZE_LENGTH], packets_received;
   COM_StatusTypeDef result = COM_OK;
+  uint8_t file_opened = 0;  // Track if file is currently open
+  uint32_t packets_since_sync = 0;  // Counter for periodic sync
 
   while ((session_done == 0) && (result == COM_OK))
   {
@@ -216,15 +220,23 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
           {
             case 2:
               /* Abort by sender */
-              f_close(&fil);
-              f_mount(NULL, "", 1);
+              if (file_opened)
+              {
+                f_close(&fil);
+                file_opened = 0;
+              }
               Serial_PutByte(ACK);
               result = COM_ABORT;
               break;
             case 0:
               /* End of transmission */
-              f_close(&fil);
-              f_mount(NULL, "", 1);
+              if (file_opened)
+              {
+                // Final sync and close
+                f_sync(&fil);
+                f_close(&fil);
+                file_opened = 0;
+              }
               Serial_PutByte(ACK);
               file_done = 1;
               break;
@@ -248,35 +260,42 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
                     {
                       aFileName[i++] = *file_ptr++;
                     }
-
-                    if(f_mount(&fs, "", 0) != FR_OK)
-                    {
-                      /* End session */
-                      Serial_PutByte(CA);
-                      Serial_PutByte(CA);
-                      result = COM_DATA;
-                    }
-
-                    if(f_open(&fil, (char*)aFileName, FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
-                    {
-                      /* End session */
-                      Serial_PutByte(CA);
-                      Serial_PutByte(CA);
-                      result = COM_DATA;
-                    }
+                    aFileName[i++] = '\0';
 
                     /* File size extraction */
-                    aFileName[i++] = '\0';
                     i = 0;
-                    file_ptr ++;
+                    file_ptr++;
                     while ( (*file_ptr != ' ') && (i < FILE_SIZE_LENGTH))
                     {
                       file_size[i++] = *file_ptr++;
                     }
                     file_size[i++] = '\0';
                     Str2Int(file_size, &filesize);
-
                     *p_size = filesize;
+
+                    /* Mount filesystem */
+                    if(f_mount(&fs, "", 0) != FR_OK)
+                    {
+                      /* End session */
+                      Serial_PutByte(CA);
+                      Serial_PutByte(CA);
+                      result = COM_DATA;
+                      break;
+                    }
+
+                    /* Open file for writing */
+                    if(f_open(&fil, (char*)aFileName, FA_CREATE_ALWAYS | FA_WRITE) != FR_OK)
+                    {
+                      /* End session */
+                      f_mount(NULL, "", 1);
+                      Serial_PutByte(CA);
+                      Serial_PutByte(CA);
+                      result = COM_DATA;
+                      break;
+                    }
+
+                    file_opened = 1;
+                    packets_since_sync = 0;
 
                     Serial_PutByte(ACK);
                     Serial_PutByte(CRC16);
@@ -284,8 +303,6 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
                   /* File header packet is empty, end session */
                   else
                   {
-                    f_close(&fil);
-                    f_mount(NULL, "", 1);
                     Serial_PutByte(ACK);
                     file_done = 1;
                     session_done = 1;
@@ -294,28 +311,77 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
                 }
                 else /* Data packet */
                 {
+                  if (!file_opened)
+                  {
+                    /* File should be open at this point */
+                    Serial_PutByte(CA);
+                    Serial_PutByte(CA);
+                    result = COM_DATA;
+                    break;
+                  }
+
                   ramsource = (uint32_t) & aPacketData[PACKET_DATA_INDEX];
 
-                  /* Write received data in Flash */
+                  /* Write received data to SD card */
                   if (f_write(&fil, (void*) ramsource, packet_length, &bytes_written) == FR_OK)
                   {
-                    Serial_PutByte(ACK);
+                    /* Verify all bytes were written */
+                    if (bytes_written == packet_length)
+                    {
+                      packets_since_sync++;
+
+                      /* Sync to SD card every SYNC_INTERVAL packets to ensure data is written
+                       * This prevents buffer overflow and ensures data integrity
+                       * for large files while maintaining reasonable performance */
+                      if (packets_since_sync >= SYNC_INTERVAL)
+                      {
+                        if (f_sync(&fil) != FR_OK)
+                        {
+                          /* Sync failed - abort */
+                          f_close(&fil);
+                          file_opened = 0;
+                          Serial_PutByte(CA);
+                          Serial_PutByte(CA);
+                          result = COM_DATA;
+                          break;
+                        }
+                        packets_since_sync = 0;
+                      }
+
+                      Serial_PutByte(ACK);
+                    }
+                    else
+                    {
+                      /* Partial write - abort */
+                      f_close(&fil);
+                      file_opened = 0;
+                      Serial_PutByte(CA);
+                      Serial_PutByte(CA);
+                      result = COM_DATA;
+                    }
                   }
-                  else /* An error occurred while writing to Flash memory */
+                  else /* An error occurred while writing to SD card */
                   {
                     /* End session */
+                    f_close(&fil);
+                    file_opened = 0;
                     Serial_PutByte(CA);
                     Serial_PutByte(CA);
                     result = COM_DATA;
                   }
                 }
-                packets_received ++;
+                packets_received++;
                 session_begin = 1;
               }
               break;
           }
           break;
         case HAL_BUSY: /* Abort actually */
+          if (file_opened)
+          {
+            f_close(&fil);
+            file_opened = 0;
+          }
           Serial_PutByte(CA);
           Serial_PutByte(CA);
           result = COM_ABORT;
@@ -323,22 +389,36 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
         default:
           if (session_begin > 0)
           {
-            errors ++;
+            errors++;
           }
-          // if (errors > MAX_ERRORS)
-          // {
-          //   /* Abort communication */
-          //   Serial_PutByte(CA);
-          //   Serial_PutByte(CA);
-          // }
-          // else
-          // {
+          if (errors > MAX_ERRORS)
+          {
+            /* Abort communication */
+            if (file_opened)
+            {
+              f_close(&fil);
+              file_opened = 0;
+            }
+            Serial_PutByte(CA);
+            Serial_PutByte(CA);
+            result = COM_ERROR;
+          }
+          else
+          {
             Serial_PutByte(CRC16); /* Ask for a packet */
-          // }
+          }
           break;
       }
     }
   }
+
+  /* Ensure file is closed if still open (cleanup) */
+  if (file_opened)
+  {
+    f_sync(&fil);
+    f_close(&fil);
+  }
+
   return result;
 }
 
