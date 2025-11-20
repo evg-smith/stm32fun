@@ -47,8 +47,6 @@ SPI_HandleTypeDef hspi1;
 
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
-DMA_HandleTypeDef hdma_usart1_tx;
-DMA_HandleTypeDef hdma_usart2_rx;
 
 /* USER CODE BEGIN PV */
 /* USER CODE END PV */
@@ -56,12 +54,11 @@ DMA_HandleTypeDef hdma_usart2_rx;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
 /* USER CODE BEGIN PFP */
-
+static void TransmitStatus(const char* status_msg, uint32_t size);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -98,7 +95,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_USART1_UART_Init();
   MX_SPI1_Init();
   MX_FATFS_Init();
@@ -112,17 +108,43 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
     uint32_t received_size = 0;
-    Ymodem_Receive(&received_size);
-    HAL_Delay(500);
+    COM_StatusTypeDef status;
 
+    /* Wait for YModem transfer initiation */
+    status = Ymodem_Receive(&received_size);
 
-    char buffer[16];
-    sprintf(buffer, "%lu", received_size);
-    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 100);
+    /* Handle transfer result */
+    switch (status)
+    {
+      case COM_OK:
+        /* Transfer completed successfully */
+        TransmitStatus("OK", received_size);
+        break;
+
+      case COM_ABORT:
+        /* Transfer aborted by sender */
+        TransmitStatus("ABORTED", 0);
+        break;
+
+      case COM_ERROR:
+        /* Communication error */
+        TransmitStatus("ERROR", 0);
+        break;
+
+      case COM_DATA:
+        /* File system error */
+        TransmitStatus("FS_ERROR", 0);
+        break;
+
+      default:
+        TransmitStatus("UNKNOWN", 0);
+        break;
+    }
+
+    HAL_Delay(100);
+    /* USER CODE END WHILE */
+    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -277,26 +299,6 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-  __HAL_RCC_DMA2_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream5_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
-  /* DMA2_Stream7_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -340,7 +342,30 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/**
+  * @brief  Transmit transfer status via UART
+  * @param  status_msg: Status message string
+  * @param  size: File size (if applicable)
+  */
+static void TransmitStatus(const char* status_msg, uint32_t size)
+{
+  char buffer[64];
+  int len;
 
+  if (size > 0)
+  {
+    len = snprintf(buffer, sizeof(buffer), "[YModem] %s - %lu bytes\r\n", status_msg, size);
+  }
+  else
+  {
+    len = snprintf(buffer, sizeof(buffer), "[YModem] %s\r\n", status_msg);
+  }
+
+  if (len > 0 && len < sizeof(buffer))
+  {
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, len, 1000);
+  }
+}
 /* USER CODE END 4 */
 
 /**
