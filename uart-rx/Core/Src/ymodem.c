@@ -203,7 +203,7 @@ uint16_t Cal_CRC16(const uint8_t* p_data, uint32_t size)
 COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
 {
   uint32_t i, packet_length, session_done = 0, file_done, errors = 0, session_begin = 0;
-  uint32_t ramsource, filesize;
+  uint32_t ramsource, filesize, total_bytes_written = 0;
   uint8_t *file_ptr;
   uint8_t file_size[FILE_SIZE_LENGTH], packets_received;
   COM_StatusTypeDef result = COM_OK;
@@ -213,6 +213,8 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
   {
     packets_received = 0;
     file_done = 0;
+    total_bytes_written = 0;  // Reset for new file
+
     while ((file_done == 0) && (result == COM_OK))
     {
       switch (ReceivePacket(aPacketData, &packet_length, DOWNLOAD_TIMEOUT))
@@ -324,12 +326,22 @@ COM_StatusTypeDef Ymodem_Receive ( uint32_t *p_size )
 
                   ramsource = (uint32_t) & aPacketData[PACKET_DATA_INDEX];
 
+                  // CRITICAL FIX: Calculate actual bytes to write (exclude padding)
+                  uint32_t bytes_to_write = packet_length;
+                  uint32_t remaining = filesize - total_bytes_written;
+
+                  if (bytes_to_write > remaining)
+                  {
+                    bytes_to_write = remaining;  // Don't write padding bytes
+                  }
+
                   /* Write received data to SD card - NO sync during transfer for max speed */
-                  if (f_write(&fil, (void*) ramsource, packet_length, &bytes_written) == FR_OK)
+                  if (f_write(&fil, (void*) ramsource, bytes_to_write, &bytes_written) == FR_OK)
                   {
                     /* Verify all bytes were written */
-                    if (bytes_written == packet_length)
+                    if (bytes_written == bytes_to_write)
                     {
+                      total_bytes_written += bytes_written;  // Track total written
                       Serial_PutByte(ACK);
                     }
                     else
